@@ -1,0 +1,12 @@
+{
+	"font": [
+		"src/fonts/**"
+	],
+	"js": [
+		"src/_plugins/js/**.js",
+		"node_modules/lazysizes/lazysizes.js"
+	],
+	"css": [
+		"src/_plugins/css/**.css"
+	]
+}

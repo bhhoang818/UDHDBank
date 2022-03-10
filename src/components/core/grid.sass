@@ -1,0 +1,112 @@
+// ---------COLOR END------------//
+$layout: 100% !default
+$container: 100% !default
+$colCount: 12 !default
+$offset: 15px !default
+$grid-breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px) !default
+
+.wide
+    padding-right: $offset/2
+    padding-left: $offset/2
+    margin-left: auto
+    margin-right: auto
+    width: 100%
+
+    @media (min-width: 1024.98px)
+        padding-right: $offset
+        padding-left: $offset
+
+@media(min-width: 576px)
+    .wide
+        max-width: 540px
+
+@media (min-width: 768px)
+    .wide
+        max-width: 720px
+@media(min-width: 992px)
+
+    &
+        max-width: 960px
+@media(min-width: 1200px)
+    .wide
+        max-width: 1140px
+@media(min-width: 1400px)
+    .wide
+        max-width: 1320px
+.wide-fullscreen
+    width: 100%
+    padding-right: $offset
+    padding-left: $offset
+    margin-right: auto
+    margin-left: auto
+
+.row
+    display: flex
+    flex-wrap: wrap
+    margin-left: -$offset
+    margin-right: -$offset
+
+.no-gutters
+    margin-left: 0
+    margin-right: 0
+
+.no-gutters>*,
+.no-gutters>[class*="col-"]
+    padding-left: 0
+    padding-right: 0
+
+[class*="col-"]
+    position: relative
+    width: 100%
+    padding-right: $offset
+    padding-left: $offset
+
+.col
+    -ms-flex-preferred-size: 0
+    flex-basis: 0
+    -ms-flex-positive: 1
+    flex-grow: 1
+    max-width: 100%
+
+.col-auto
+    -ms-flex: 0 0 auto
+    flex: 0 0 auto
+    width: auto
+    max-width: 100%
+
+@for $col from 1 through $colCount
+    .col-#{$col}
+        -ms-flex: 0 0 (100% / $colCount * $col)
+        flex: 0 0 (100% / $colCount * $col)
+        max-width: (100% / $colCount * $col)
+
+@each $bp,$value in $grid-breakpoints
+    @media (min-width: #{$value})
+        .col-#{$bp}
+            -ms-flex-preferred-size: 0
+            flex-basis: 0
+            -ms-flex-positive: 1
+            flex-grow: 1
+            max-width: 100%
+
+        .col-#{$bp}-auto
+            -ms-flex: 0 0 auto
+            flex: 0 0 auto
+            width: auto
+            max-width: 100%
+
+        @for $col from 1 through $colCount
+            .col-#{$bp}-#{$col}
+                -ms-flex: 0 0 (100% / $colCount * $col)
+                flex: 0 0 (100% / $colCount * $col)
+                max-width: (100% / $colCount * $col)
+
+@for $col from 1 through $colCount
+    .offset-#{$col}
+        margin-left: (100% / $colCount * $col)
+@each $bp,$value in $grid-breakpoints
+    @media (min-width: #{$value})
+        @for $col from 1 through $colCount
+            .offset-#{$bp}-#{$col}
+                margin-left: (100% / $colCount * $col)
+// ------------GRID END--------//

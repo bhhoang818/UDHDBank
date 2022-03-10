@@ -1,0 +1,49 @@
+@mixin bp($class)
+    @if $class==mobile
+        @media (min-width: 640px)
+            @content
+
+    @else if $class==tablet
+        @media (min-width: 992px)
+            @content
+
+    @else if $class==laptop
+        @media (min-width: 1024px)
+            @content
+
+    @else if $class==desktop
+        @media (min-width: 1280px)
+            @content
+
+    @else if $class==cinema
+        @media (min-width: 1536px)
+            @content
+
+// @include bp(mobile)
+
+@function r($size)
+    @return ($size/16px)*1rem
+=img-ratio($ratio,$fit:cover)
+    position: relative
+    display: block
+    overflow: hidden
+    padding-top: $ratio *100%
+    img,iframe,video
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        object-fit: $fit
+=img-scale($ratio)
+    padding-top: ($ratio * 100%)
+    display: block
+    position: relative
+    overflow: hidden
+    img
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        object-fit: contain

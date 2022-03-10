@@ -1,0 +1,55 @@
+.header-bg-img
+    width: 100%
+    height: 100vh
+    background-image: url(../images/banner/header-bg3.jpg)
+    position: relative
+    background-size: cover
+    background-position: center center
+
+    .header-content
+        position: relative
+        z-index: 2
+        max-width: 800px
+
+        .header-name
+            font-size: 54px
+
+        .header-desc
+            max-width: 500px
+            line-height: 1.8
+            color: rgba(255, 255, 255, 0.75) !important
+
+    .scroll_down
+        position: absolute
+        bottom: 5vh
+        width: 100%
+        text-align: center
+        color: #fff
+        font-size: 13px
+        z-index: 8
+
+        & i
+            position: relative
+            -webkit-animation: bounce 2s infinite
+            animation: bounce 2s infinite
+            height: 44px
+            width: 28px
+            line-height: 54px
+            border-radius: 30px
+            border: 2px solid #ffffff
+            display: inline-block
+            color: #fff
+            font-size: 10px
+
+            &:after
+                content: ""
+                position: absolute
+                top: 22px
+                left: 11px
+                border-radius: 2px
+                z-index: -1
+                bottom: 0px
+                transition: all .2s
+                height: 10px
+                width: 3px
+                background: #fff
