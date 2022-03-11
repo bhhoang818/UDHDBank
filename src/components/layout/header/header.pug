@@ -1,24 +1,43 @@
+.popup-app.d-flex.align-items-center.justify-content-center 
+	.popup-app_left 
+		img(src="./images/popupApp/left.svg", alt="")
+	.popup-app_content.d-flex.align-items-center 
+		p 
+			|Chúng tôi vừa cho ra mắt ứng dụng
+			br
+			span “ iPaper” 
+			|trình ký sẵn
+		a.btn.btn-submit(href="")
+			span Tải về ngay 
+	.popup-app_right 
+		img(src="./images/popupApp/right.svg", alt="")
+	.close 
+		img(src="./images/icons/close.svg", alt="")
 header 
-	// Start Navbar
-	nav.navbar.navbar-expand-lg.custom-nav.navbar-light.fixed-top.sticky
-		.container
-			h1.navbar-brand.pt-0.logo
-				a(href='#')
-					img.img-fluid(src='./images/logo.png' alt='')
-			button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav')
-				span.mdi.mdi-menu
-			#navbarNav.collapse.navbar-collapse
-				ul#main_nav.navbar-nav.ms-auto
-					li.nav-item
-						a.nav-link(href='#home') Home
-					li.nav-item
-						a.nav-link(href='#about') About
-					li.nav-item
-						a.nav-link(href='#services') Services
-					li.nav-item
-						a.nav-link(href='#portfolio') Portfolio
-					li.nav-item
-						a.nav-link(href='#blog') Blog
-					li.nav-item
-						a.nav-link(href='#contact') Contact
-	// End Navbar
+	.wide
+		nav.navbar
+			.d-flex.align-items-center
+				h1.navbar-brand
+					a(href='#')
+						img(src='./images/logo.svg' alt='')
+				form.wrap-form(action="") 
+					.form-group.d-flex.align-items-center 
+						input.form-control(type="text")
+						button
+							em.material-icons search
+				.button-box.d-flex.align-items-center 
+					a.btn.btn-ebanking(href="")
+						span Ngân hàng trực tuyến
+					.dropdown
+						a(href="")
+							span Môi trường product
+							em.material-icons keyboard_arrow_down
+						ul.dropdown-menu
+							li 
+								a(href="") Môi trường product
+							li 
+								a(href="") Môi trường UAT
+				.user-infor.d-flex.align-items-center  
+					span.username Xin chào, Nghĩa
+					span 
+						img(src="./images/avatar.svg", alt="")

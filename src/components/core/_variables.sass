@@ -1,49 +1,26 @@
-@mixin bp($class)
-    @if $class==mobile
-        @media (min-width: 640px)
-            @content
-
-    @else if $class==tablet
-        @media (min-width: 992px)
-            @content
-
-    @else if $class==laptop
-        @media (min-width: 1024px)
-            @content
-
-    @else if $class==desktop
-        @media (min-width: 1280px)
-            @content
-
-    @else if $class==cinema
-        @media (min-width: 1536px)
-            @content
-
-// @include bp(mobile)
-
-@function r($size)
-    @return ($size/16px)*1rem
-=img-ratio($ratio,$fit:cover)
-    position: relative
-    display: block
-    overflow: hidden
-    padding-top: $ratio *100%
-    img,iframe,video
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        object-fit: $fit
-=img-scale($ratio)
-    padding-top: ($ratio * 100%)
-    display: block
-    position: relative
-    overflow: hidden
-    img
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        object-fit: contain
+$black: #454F5B
+$white: #fff
+$yellow-brand: #FFC20E
+$yellow-5: #F7A30A
+$yellow-4: #F7B512
+$yellow-1: #FFECB3
+$yellow-0: #FFF9E5
+$green-3: #8EC320
+$green-4: #4FA800
+$green-0: #F2FAE2
+$red-3: #EB2629
+$red-brand: #BE1128
+$neutral: #B6BEC8
+$neutral-1: #EAEEF2
+$neutral-2: #D3D8DE
+$neutral-3: #B6BEC8
+$neutral-4: #454F5B
+$neutral-5: #212B36
+$brand-grey: #464646
+$orange-4: #F56600
+$orange-0: #FFF0E5
+$red-1: #FDE8E8
+$gray-2: #4F4F4F
+$trans: transparent
+$blue-4: #1890FF
+$blue-1: #E5F3FF

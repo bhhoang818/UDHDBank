@@ -1,1 +1,70 @@
+.popup-app
+    background: #FFE7D6
+    padding: 0 16px
+    width: 100%
+    height: 100px
+    margin-bottom: 24px
+    position: relative
+    &_left,
+    &_right
+        position: absolute
+        top: 0
+    &_left
+        left: 0
+    &_right
+        right: 0
+    .close
+        position: absolute
+        cursor: pointer
+        top: 50%
+        right: 16px
+        transform: translateY(-50%)
+    &_content
+        p
+            font-size: 20px
+            color: #454F5B
+            span
+                font-weight: 700
+        .btn-submit
+            margin-left: 24px
+            padding: 12px 24px
+header
+    .navbar
+        width: 100%
+        height: 90px
+        background: #BE1128
+        border-radius: 20px
+        padding: 25px 24px
+        .navbar-brand
+            width: 113px
+            a
+                +img-ratio(40/113)
+        .wrap-form
+            margin-left: 24px
+            .form-group
+                position: relative
+                width: 390px
+                height: 40px
+                background: #FFFFFF
+                border: 1px solid #D3D8DE
+                box-sizing: border-box
+                border-radius: 8px
 
+                .form-control
+                    width: 100%
+                    height: 100%
+                    border: 0
+                    padding-left: 16px
+                    background: $trans
+                    &::placeholder
+                        color: #B6BEC8
+                button
+                    border: 0
+                    background: $trans
+                    display: flex
+                    align-items: center
+        .button-box
+            margin-left: auto
+            .dropdown
+                .dropdown-menu
+                    display: none
