@@ -15,19 +15,71 @@
 		img(src="./images/icons/close.svg", alt="")
 header 
 	.wide
-		nav.navbar
-			.d-flex.align-items-center
-				h1.navbar-brand
+		nav.navbar.d-flex.align-items-center
+			.navbar-main.d-flex.align-items-center
+				h1.navbar-brand.desktop
 					a(href='#')
 						img(src='./images/logo.svg' alt='')
+				h1.navbar-brand.mobile
+					a(href='#')
+						img(src='./images/logo-mb.png' alt='')
 				form.wrap-form(action="") 
 					.form-group.d-flex.align-items-center 
 						input.form-control(type="text")
+						.clearn 
+							em.material-icons close
 						button
 							em.material-icons search
+						.suggestsearch
+							.search-list
+								ul 
+									li 
+										a(href="")  HDBank mobile app
+									li 
+										a(href="")  HDBank Home
+									li 
+										a(href="")  eBanking HDBank
+
 				a.btn-ebanking(href="")
 					span Ngân hàng trực tuyến
 				.user-infor.d-flex.align-items-center  
 					span.username Xin chào, Nghĩa
 					span 
 						img(src="./images/avatar.svg", alt="")
+				.btn.btn-toggle 
+					span 
+					span 
+					span 
+					span
+			.navbar-mobile
+				a.btn-ebanking(href="") Ngân hàng trực tuyến
+				.wrap-list 
+					a.btn-title(href="") Biểu mẫu nhân sự
+					ul 
+						li 
+							a(href="") 
+								img.icon(src="./images/icons/i-11.svg", alt="")
+								span BHXH
+						li 
+							a(href="") 
+								img.icon(src="./images/icons/i-12.svg", alt="")
+								span Quyết toán thuế
+						li 
+							a(href="") 
+								img.icon(src="./images/icons/i-13.svg", alt="")
+								span ĐK người phụ thuộc
+					a.btn-title(href="") Dịch vụ CNTT
+					ul 
+						li 
+							a(href="") 
+								img.icon(src="./images/icons/i-23.svg", alt="")
+								span Phiếu YC CNTT
+						li 
+							a(href="") 
+								img.icon(src="./images/icons/i-24.svg", alt="")
+								span Phiếu YC cấp user
+				.user-infor 
+					a(href="") 
+						img.avatar(src="./images/avatar.svg", alt="")
+					a.username(href="") Xin chào, Nghĩa
+					a.btn-logout(href="") Đăng xuất

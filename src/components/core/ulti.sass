@@ -15,3 +15,44 @@
         pointer-events: visible
 section
     padding: 20px 0
+    @media screen and ( max-width: 600px )
+        padding: 9px 0
+.title
+    font-weight: 700
+    font-size: 32px
+    color: #020202
+    padding-bottom: 25px
+    @media screen and ( max-width: 600px )
+        font-size: 16px
+        color: #2C3E50
+
+#character
+    background: #FFFFFF
+    box-shadow: 0px 14px 40px rgba(33, 43, 54, 0.1)
+    border-radius: 8px
+    position: fixed
+    right: 42px
+    bottom: 16px
+    display: flex
+    flex-direction: column
+    padding: 8px
+    z-index: 1000
+    .cloes
+        position: absolute
+        top: 8px
+        right: 8px
+    .btn-character
+        margin-top: 8px
+        background: #FFFFFF
+        border: 1px solid #FFC20E
+        border-radius: 60px
+        padding: 7px 5px
+        font-weight: 700
+        font-size: 12px
+        text-align: center
+        color: #F7A30A
+    @media screen and ( max-width: 600px )
+        display: none
+#home-mobile
+    @media screen and ( min-width: 600px )
+        display: none

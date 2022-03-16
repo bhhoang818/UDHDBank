@@ -1,0 +1,19 @@
+section.home-3 
+    .wide 
+        h2.title Ứng dụng theo khối
+        .owl-carousel.owl-theme.list-item
+            -for(i=1; i<13; i++)
+                a.item.d-flex.align-items-center(href="")
+                    img.icon(src="./images/icons/ud-"+i+".svg", alt="")
+                    .text 
+                        p Khối Khách Hàng Cá Nhân
+        .list-item_mobile 
+            .wrapper-content
+                h2.title Ứng dụng theo khối
+                ul.list-app
+                    -for(i=1; i<13; i++)
+                        li 
+                            a.item.d-flex.align-items-center(href="")
+                                img.icon(src="./images/icons/ud-"+i+".svg", alt="")
+                                .text 
+                                    p Khối Khách Hàng Cá Nhân

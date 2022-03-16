@@ -5,6 +5,7 @@ footer
     background-image: url('../images/footer.jpg')
     background-repeat: no-repeat
     background-size: cover
+    overflow: hidden
     &::after
         position: absolute
         bottom: -6px
@@ -44,3 +45,22 @@ footer
             font-weight: 700
             font-size: 14px
             color: #F9F9F9
+    @media screen and ( max-width: 600px )
+        padding-top: 48px
+        &::after
+            width: 135px
+            bottom: 47px
+            content: url('../images/flower-mb.png')
+        .footer-content
+            padding-left: 16px
+            .footer-title
+                p
+                    font-size: 12px
+            .footer-infor
+                display: none
+        .coppy-right
+            padding-left: 16px
+            p
+                font-style: italic
+                font-weight: 400
+                font-size: 12px

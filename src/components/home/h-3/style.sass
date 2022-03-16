@@ -1,0 +1,83 @@
+.home-3
+    .list-item
+        position: relative
+        .item
+            background: #FFFFFF
+            box-shadow: 0px 2px 16px rgba(33, 43, 54, 0.05)
+            border-radius: 16px
+            padding: 20px 12px 20px 25px
+            width: 100%
+            height: 90px
+
+            .icon
+                max-width: 36px
+                height: 32
+            .text
+                margin-left: 16px
+                p
+                    font-weight: 600
+                    font-size: 16px
+                    color: #464646
+        .owl-nav
+            position: absolute
+            top: 50%
+            left: 0
+            width: 100%
+            display: flex
+            justify-content: space-between
+            transform: translateY(-50%)
+            z-index: -1
+            .owl-prev
+                margin-left: -60px
+                span
+                    font-size: 0
+                    &::after
+                        content: url('../images/icons/arrow-left.svg')
+            .owl-next
+                margin-right: -60px
+                span
+                    font-size: 0
+                    &::after
+                        content: url('../images/icons/arrow-right.svg')
+        .owl-dots
+            display: none
+    .list-item_mobile
+        .wrapper-content
+            padding: 20px 10px
+            background: #F3F3F3
+            border-radius: 8px
+            .title
+                display: block
+            .list-app
+                display: flex
+                flex-wrap: wrap
+                margin-left: -5px
+                margin-right: -5px
+                li
+                    flex: 0 0 (100% / 2)
+                    max-width: (100% / 2)
+                    padding: 0 5px
+                    .item
+                        width: 100%
+                        height: 148px
+                        background: #FFFFFF
+                        border-radius: 10px
+                        padding: 30px
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+                        justify-content: center
+                        .text
+                            p
+                                text-align: center
+                                font-size: 12px
+                                color: #464646
+                li + li
+                    margin-bottom: 10px
+        @media screen and ( min-width: 600px )
+            display: none
+    @media screen and ( max-width: 600px )
+        .title
+            display: none
+        .list-item
+            display: none !important

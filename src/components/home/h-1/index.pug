@@ -2,7 +2,9 @@ section.home-1
     .wide 
         .wrapper-container 
             ul.list-items.d-flex.align-items-center.flex-wrap
-                li.item 
-                    .item-inner.d-flex.align-items-center 
-                        .icon 
-                            img(src="./images/icons/hdbankhome.svg", alt="")
+                -for(i=1; i<11; i++)
+                    li.item 
+                        a.item-inner.d-flex.align-items-center(href="") 
+                            img.icon(src="./images/icons/i-"+i+".svg", alt="")
+                            .text 
+                                p HDBank Mobile App
