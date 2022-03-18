@@ -51,6 +51,9 @@
                     white-space: nowrap
 header
     margin-bottom: 20px
+    margin-top: 30px
+    @media screen and ( max-width: 600px )
+        margin-top: 8px
     .navbar
         width: 100%
         height: 90px
@@ -123,6 +126,7 @@ header
                     font-weight: 600
                     font-size: 16px
                     color: #5A5A5D
+
             .user-infor
                 margin-left: 24px
                 span
@@ -131,10 +135,16 @@ header
                     font-size: 16px
                     color: #F7EFEF
                     margin-right: 8px
+                .avatar
+                    width: 37px
+                    height: 37px
+                    border-radius: 50%
+                    border: 2px solid #FFFFFF
+                    box-sizing: border-box
         &-mobile
             position: absolute
             top: 130%
-            right: -100%
+            left: -100%
             width: 256px
             padding: 24px
             background: #BE1128
@@ -215,28 +225,37 @@ header
                     font-size: 14px
                     color: #464646
             &.active
-                right: 0
+                left: 0
                 opacity: 1
                 visibility: visible
 
-            @media screen and ( min-width: 600px )
+            @media screen and ( min-width: 1200px )
                 display: none
-        @media screen and ( max-width: 600px )
-            height: 46px
+        @media screen and ( max-width: 1199.98px )
+            height: 60px
             padding: 0 13px
             border-radius: 12px
             &-main
                 .navbar-brand
-                    width: 62px
+                    width: 100px
                 .btn-ebanking,
                 .user-infor
                     display: none
                 .wrap-form
+                    margin-left: auto
                     .form-group
-                        width: 192px
-                        height: 24px
+                        // width: 192px
+                        height: 30px
                         .form-control
                             font-size: 13px
                         button
                             em
                                 font-size: 16px
+        @media screen and ( max-width: 600.98px )
+            height: 45px
+            &-main
+                .navbar-brand
+                    width: 62px
+                .wrap-form
+                    .form-group
+                        width: 192px

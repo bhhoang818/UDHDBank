@@ -48,12 +48,12 @@
             &:hover
                 background: linear-gradient(0deg, #FFC20E 0%, #F7A30A 152.65%)
     &-toggle
-        margin-left: auto
+        margin-right: 16px
         cursor: pointer
         position: relative
         padding: 0
         min-width: 30px
-        min-height: 24px
+        min-height: 20px
         transition: .3s all linear
         span
             display: block
@@ -95,5 +95,55 @@
                     top: 18px
                     width: 0%
                     left: 50%
-        @media screen and ( min-width: 600px )
+        @media screen and ( min-width: 1200px )
             display: none
+    &-trail
+        display: flex
+        align-items: center
+        justify-content: center
+        position: relative
+        width: 100%
+        background: #FFFFFF
+        border: 1px solid #FFC20E
+        border-radius: 87px
+        padding: 20px 42px 20px 77px
+        margin-bottom: 25px
+        p
+            font-weight: 600
+            font-size: 18px
+            color: #454F5B
+            transition: all .5s
+        .icon
+            position: absolute
+            left: 3px
+            top: 50%
+            transform: translateY(-50%)
+            width: 58px
+            height: 58px
+            display: flex
+            align-items: center
+            justify-content: center
+            background: #F7A30A
+            border-radius: 50%
+            transition: all .5s
+            em
+                color: #464646
+                font-weight: 900
+        @media screen and ( min-width: 1200px )
+            &:hover
+                .icon
+                    left: 85.2%
+                p
+                    transform: translateX(-40px)
+        @media screen and ( max-width: 1440.98px )
+            padding-left: 60px
+            padding-right: 30px
+            p
+                font-size: 16px
+        @media screen and ( max-width: 1366.98px )
+            padding: 13px 22px 13px 60px
+            p
+                font-size: 14px
+            .icon
+                width: 43px
+                height: 43px

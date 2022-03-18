@@ -1,12 +1,16 @@
 .home-2
+    overflow: hidden
+    padding-bottom: 0
     .wrapper-container
         position: relative
         background-image: url('../images/home-1/bg-1.png')
         background-size: cover
         background-repeat: no-repeat
-        background-position: right
+        background-attachment: fixed
+        background-position: left
         border-radius: 20px
         padding: 55px
+
         &::after
             position: absolute
             content: ''
@@ -20,6 +24,8 @@
         .row
             z-index: 2
             position: relative
+            .col-lg-7
+                margin-bottom: -55px
         #accordian
             ul.level-1
                 li
@@ -122,8 +128,8 @@
                                             color: #006FD6
 
         .bg-img
-            padding-top: 30px
-    @media screen and ( max-width: 600px )
+            transform: translateY(160px)
+    @media screen and ( max-width: 1199.98px )
         .wrapper-container
             background: none
             padding: 27px 7px 27px 20px

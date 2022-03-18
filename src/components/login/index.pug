@@ -1,27 +1,29 @@
 section.login-bg 
     .wrapper-container.d-flex.align-items-center 
         .wrapper-left
-            .title-login 
-                p Chào mừng bạn đến với 
-                h2 Ứng Dụng HDBank
+            .logo 
+                a.desktop(href="")
+                    img(src="./images/logo-login.png", alt="")
+                a.mobile(href="")
+                    img(src="./images/logo-mb.png", alt="")
             .img-bg
                 img(src="./images/login-bg.png", alt="")
         .wrapper-right 
             .wrapper-content 
-                .logo 
-                    h1 
-                        a(href="")
-                            img(src="./images/logo-login.png", alt="") 
+                a.btn.btn-trail(href="") 
+                    p Dùng thử môi trường thử nghiệm
+                    .icon
+                        em.material-icons arrow_forward
                 .title-login 
                     p Chào mừng bạn đến với 
-                    h2 Ứng Dụng HDBank
+                    h1 Ứng Dụng HDBank
                 form.wrap-form(action="")
                     .form-group.d-flex 
                         label(for="") Tên Đăng Nhập
-                        input.form-control(type="text" placeholder="Tên Đăng Nhập")
+                        input.form-control(type="text" placeholder="Nhập tên user")
                     .form-group.d-flex 
                         label(for="") Nhập Mật khẩu
-                        input.form-control(type="text" placeholder="Nhập Mật khẩu")
+                        input.form-control(type="text" placeholder="Nhập mật khẩu")
                         img.icon(src="./images/icons/eye.svg", alt="" )
                     button.btn.btn-submit 
                         span Đăng Nhập

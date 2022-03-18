@@ -49,7 +49,7 @@
                     margin-left: 16px
             &:last-child
                 padding-bottom: 0
-    .col-lg-4
+    .col-xl-4
         &:last-child
             .wrapper-content
                 .content
@@ -58,7 +58,14 @@
                         .item
                             &:nth-child(5)
                                 margin-left: 0
-    @media screen and ( max-width: 600px )
+    @media screen and ( max-width: 1280px )
+        .wrapper-content
+            .content
+                .list-content
+                    padding-left: 0
+        .col-xl-4
+            margin-bottom: 30px
+    @media screen and ( max-width: 768.98px )
         padding-bottom: 16px
         .title
             display: none
@@ -87,9 +94,22 @@
                         font-size: 16px
                         margin-left: 4px
                 .list-content
-                    padding-left: 25px
+                    padding-left: 0
+                    .item
+                        flex: 0 0 (100% / 4)
+                        max-width: (100% / 4)
+                    .item + .item
+                        margin-left: 0
 
-        .col-lg-4
+        .col-xl-4
             &:first-child,
             &:nth-last-child(2)
                 display: none
+            &:last-child
+                .wrapper-content
+                    .content
+                        .list-content
+                            flex-wrap: wrap
+                            .item
+                                &:nth-child(5)
+                                    margin-left: 0

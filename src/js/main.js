@@ -50,9 +50,15 @@ const headerAction = () => {
         $("header").find(".navbar-mobile").removeClass('active');
         $("header").find('.btn-toggle').toggleClass('active');
     });
-    if ($(window).width() < 768) {
+    if ($(window).width() < 769) {
         $('.home-5').appendTo('#home-mobile')
     }
+    $('.popup-app').find('.close').on('click', () => {
+        $('.popup-app').slideToggle();
+    })
+    $('#character').find('.cloes').on('click', () => {
+        $('#character').fadeToggle();
+    })
 }
 
 
