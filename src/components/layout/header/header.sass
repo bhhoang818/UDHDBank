@@ -128,7 +128,9 @@ header
                     color: #5A5A5D
 
             .user-infor
+                position: relative
                 margin-left: 24px
+                cursor: pointer
                 span
                     cursor: pointer
                 .username
@@ -141,6 +143,26 @@ header
                     border-radius: 50%
                     border: 2px solid #FFFFFF
                     box-sizing: border-box
+                    object-fit: cover
+                .dropdown
+                    position: absolute
+                    top: 100%
+                    left: 0
+                    background: #FFFFFF
+                    box-shadow: 0px 14px 40px rgba(33, 43, 54, 0.1)
+                    border-radius: 8px
+                    padding: 11px 22px
+                    opacity: 0
+                    visibility: hidden
+                    transition: all .3s
+                    ul
+                        li
+                            a
+                                color: #454F5B
+                &:hover
+                    .dropdown
+                        opacity: 1
+                        visibility: visible
         &-mobile
             position: absolute
             top: 130%

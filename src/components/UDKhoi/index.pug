@@ -1,0 +1,33 @@
+section.application
+    .wide 
+        h2.title Ứng dụng theo khối
+        .wrapper-container 
+            .wrap-header.d-flex.align-items-center 
+                .wrap-header_title.d-flex.align-items-center 
+                    img.icon(src="./images/icons/ud-6.svg", alt="")
+                    span.text Khối Hỗ Trợ Tín Dụng
+                .wrap-header_dropdown
+                    a(href="javascript:;")
+                        em.material-icons arrow_drop_down 
+                    .dropdown
+                        ul.d-flex.align-items-center.flex-wrap 
+                            -for(i=1; i<13; i++)
+                                li
+                                    .item 
+                                        a(href="") 
+                                            img.icon(src="./images/icons/ud-"+i+".svg", alt="")
+                                            span.text Ban Pháp Chế & Kiểm Soát Tuân Thủ
+
+            .wrap-body 
+                p.wrap-body_title Danh sách ứng dụng
+                .wrap-body_list 
+                    .row 
+                        .col-xl-6.col-md-6.col-sm-6.col-12
+                            a.item(href="") 
+                                img.icon(src="./images/icons/i-4.svg", alt="")
+                                span.text Tư vấn nghiệp vụ QL & HTTD
+                        .col-xl-6.col-md-6.col-sm-6.col-12
+                            a.item(href="") 
+                                img.icon(src="./images/icons/i-5.svg", alt="")
+                                span.text HDBank BDTV Online
+

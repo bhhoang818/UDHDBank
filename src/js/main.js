@@ -39,7 +39,7 @@ const owlCarousel = () => {
         autoplayHoverPause: false,
     });
 }
-const headerAction = () => {
+const handlerAction = () => {
     $("header").find(".btn-toggle").on("click", () => {
         $("header").find(".btn-toggle").toggleClass("active");
         $("header").find(".navbar-mobile").toggleClass('active');
@@ -59,11 +59,16 @@ const headerAction = () => {
     $('#character').find('.cloes').on('click', () => {
         $('#character').fadeToggle();
     })
+    const toggleDropDown = $('.wrap-header_dropdown > a');
+    toggleDropDown.on('click', () => {
+        toggleDropDown.toggleClass('active');
+        toggleDropDown.next('.dropdown').slideToggle();
+    })
 }
 
 
 $(document).ready(() => {
     accordianList();
     owlCarousel();
-    headerAction();
+    handlerAction();
 });
