@@ -31,7 +31,7 @@
                     font-size: 20px
                     color: #464646
             .list-content
-
+                flex-wrap: wrap
                 .item
                     max-width: 87px
                     height: 95px
@@ -69,6 +69,9 @@
                         .item
                             &:nth-child(5)
                                 margin-left: 0
+    .col-12
+        @media screen and ( min-width: 600px )
+            display: none
     @media screen and ( max-width: 1280px )
         .wrapper-content
             .content
@@ -113,14 +116,11 @@
                         margin-left: 0
 
         .col-xl-4
-            &:first-child,
-            &:nth-last-child(2)
-                display: none
-            &:last-child
-                .wrapper-content
-                    .content
-                        .list-content
-                            flex-wrap: wrap
-                            .item
-                                &:nth-child(5)
-                                    margin-left: 0
+            display: none
+        .wrapper-content
+            .content
+                .list-content
+                    flex-wrap: wrap
+                    .item
+                        &:nth-child(5)
+                            margin-left: 0

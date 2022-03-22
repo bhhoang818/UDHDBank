@@ -159,3 +159,34 @@
             .wrapper-left
                 .logo
                     width: 115px
+.loadingpage
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 9999
+    width: 100vw
+    height: 100vh
+    background: #E5E5E5
+    display: flex
+    align-items: center
+    justify-content: center
+    .wrapper-container
+        .loader
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            .img
+                margin-bottom: 50px
+            .content
+                p
+                    font-weight: 700
+                    font-size: 32px
+                    color: #BB2126
+                    text-align: center
+    @media screen and ( max-width: 600px )
+        .wrapper-container
+            .loader
+                .content
+                    p
+                        font-size: 20px
