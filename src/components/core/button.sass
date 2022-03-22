@@ -102,18 +102,19 @@
         align-items: center
         justify-content: center
         position: relative
-        width: 100%
+        width: 400px
         background: #FFFFFF
         border: 1px solid #FFC20E
         border-radius: 87px
         padding: 20px 42px 20px 77px
         margin-bottom: 25px
-        p
+        .slide-text
             font-weight: 600
             font-size: 18px
             color: #454F5B
             transition: all .5s
         .icon
+            transition: width 0.3s, border-radius 0.3s, height 0.3s
             position: absolute
             left: 3px
             top: 50%
@@ -129,12 +130,14 @@
             em
                 color: #464646
                 font-weight: 900
-        @media screen and ( min-width: 1200px )
-            &:hover
-                .icon
-                    left: 85.2%
-                p
-                    transform: translateX(-40px)
+                @include nonselect
+            &.unlocked
+                transition: all 0.3s
+                width: inherit
+                height: 100%
+                left: 0 !important
+                border-radius: inherit
+
         @media screen and ( max-width: 1440.98px )
             padding-left: 60px
             padding-right: 30px

@@ -63,51 +63,79 @@ const handlerAction = () => {
     });
     var openCharacter = $('.open-character');
     openCharacter.on('click', () => {
-        openCharacter.next('.btn-character').fadeToggle();
+        openCharacter.next('.btn-trail').fadeToggle();
         openCharacter.fadeToggle();
     });
     $('#character').find('.cloes').on('click', () => {
-        $('#character').find('.btn-character').fadeOut();
+        $('#character').find('.btn-trail').fadeOut();
         openCharacter.fadeIn();
     })
 }
+const swipeButton = () => {
+    var initialMouse = 0;
+    var slideMovementTotal = 0;
+    var mouseIsDown = false;
+    var slider = $('.btn-trail .icon');
 
+    slider.on('mousedown touchstart', function (event) {
+        mouseIsDown = true;
+        slideMovementTotal = $('.btn-trail').width() - $(this).width() + 10;
+        initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
+    });
+
+    $(document.body, '.btn-trail .icon').on('mouseup touchend', function (event) {
+        if (!mouseIsDown)
+            return;
+        mouseIsDown = false;
+        var currentMouse = event.clientX || event.changedTouches[0].pageX;
+        var relativeMouse = currentMouse - initialMouse;
+
+        if (relativeMouse < slideMovementTotal) {
+            $('.slide-text').fadeTo(300, 1);
+            slider.animate({
+                left: "-10px"
+            }, 300);
+            return;
+        }
+        slider.addClass('unlocked');
+        $('#locker').text('lock_outline');
+        setTimeout(function () {
+            slider.on('click tap', function (event) {
+                if (!slider.hasClass('unlocked'))
+                    return;
+                slider.removeClass('unlocked');
+                $('#locker').text('lock_open');
+                slider.off('click tap');
+            });
+        }, 0);
+    });
+
+    $(document.body).on('mousemove touchmove', function (event) {
+        if (!mouseIsDown)
+            return;
+
+        var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
+        var relativeMouse = currentMouse - initialMouse;
+        var slidePercent = 1 - (relativeMouse / slideMovementTotal);
+
+        $('.slide-text').fadeTo(0, slidePercent);
+
+        if (relativeMouse <= 0) {
+            slider.css({ 'left': '-10px' });
+            return;
+        }
+        if (relativeMouse >= slideMovementTotal + 10) {
+            slider.css({ 'left': slideMovementTotal + 'px' });
+            return;
+        }
+        slider.css({ 'left': relativeMouse - 10 });
+    });
+
+}
 
 $(document).ready(() => {
     accordianList();
     owlCarousel();
     handlerAction();
-    if (!(document.cookie.indexOf("popupOnce") > -1)) {
-        $('.loadingpage').show();
-        $('.loadingpage').delay(3000).fadeOut();
-        $('body').css({
-            display: "block"
-        });
-        createCookie('popupOnce', "1", 1);
-    }
-    else {
-        $('body').css({
-            display: "block"
-        });
-    }
-
-    function createCookie(name, value, days) {
-        if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            var expires = "; expires=" + date.toGMTString();
-        } else var expires = "";
-        document.cookie = name + "=" + value + expires + "; path=/";
-    }
-
-    function readCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
+    swipeButton();
 });

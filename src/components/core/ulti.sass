@@ -29,8 +29,8 @@ section
 #character
     border-radius: 8px
     position: absolute
-    right: 30px
-    top: 150px
+    right: 0
+    top: 170px
     display: flex
     flex-direction: column
     padding: 8px
@@ -58,16 +58,11 @@ section
             animation-iteration-count: infinite
             animation-timing-function: linear
             color: $white
-    .btn-character
-        position: relative
-        background: #FFFFFF
-        border: 1px solid #FFC20E
-        border-radius: 60px
+    .btn-trail
+        display: none
         padding: 18px 15px 18px 50px
         font-weight: 600
         font-size: 12px
-        color: #454F5B
-        text-align: center
         .icon
             position: absolute
             top: 50%
@@ -75,20 +70,10 @@ section
             transform: translateY(-50%)
             width: 43px
             height: 43px
-            border-radius: 50%
-            background: #F7A30A
             border-radius: 48px
-            display: flex
-            align-items: center
-            justify-content: center
             em
                 color: #464646
                 font-weight: 900
-    @media screen and ( max-width: 1280px )
-        right: 0
-        top: 170px
-        .btn-character
-            display: none
     @media screen and ( max-width: 600px )
         display: none
 #home-mobile

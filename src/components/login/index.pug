@@ -10,10 +10,11 @@ section.login-bg
                 img(src="./images/login-bg.png", alt="")
         .wrapper-right 
             .wrapper-content 
-                a.btn.btn-trail(href="") 
-                    p Dùng thử môi trường thử nghiệm
+                .btn.btn-trail
+                    a(href="http://localhost:8000/" style="display: none;") 
+                    p.slide-text Dùng thử môi trường thử nghiệm
                     .icon
-                        em.material-icons arrow_forward
+                        em#locker.material-icons arrow_forward
                 .title-login 
                     p Chào mừng bạn đến với 
                     h1 Ứng Dụng HDBank
