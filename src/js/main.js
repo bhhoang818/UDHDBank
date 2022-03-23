@@ -85,7 +85,7 @@ const swipeButton = () => {
     var url = $('#button-background .slide-text').attr('data-url');
     slider.on('mousedown touchstart', function (event) {
         mouseIsDown = true;
-        slideMovementTotal = $('#button-background').width() - $(this).width() + 10;
+        slideMovementTotal = $('#button-background').width() - $(this).width() - 3;
         initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
     });
 
@@ -107,6 +107,7 @@ const swipeButton = () => {
         $('#mesange').text('Đang chuyển môi trường thử nghiệm');
         $('#mesange').fadeIn();
         $('#locker').css('display', 'none');
+        $('#loadingpage').css('display', 'flex');
         setTimeout(function () {
             slider.on('click tap', function (event) {
                 if (!slider.hasClass('unlocked'))
@@ -118,7 +119,7 @@ const swipeButton = () => {
                 slider.off('click tap');
             });
             window.location.href = url;
-        }, 2500);
+        }, 1500);
     });
 
     $(document.body).on('mousemove touchmove', function (event) {
@@ -132,14 +133,14 @@ const swipeButton = () => {
         $('.slide-text').fadeTo(0, slidePercent);
 
         if (relativeMouse <= 0) {
-            slider.css({ 'left': '-10px' });
+            slider.css({ 'left': '3px' });
             return;
         }
-        if (relativeMouse >= slideMovementTotal + 10) {
-            slider.css({ 'left': slideMovementTotal + 'px' });
+        if (relativeMouse >= slideMovementTotal - 3) {
+            slider.css({ 'left': slideMovementTotal - 'px' });
             return;
         }
-        slider.css({ 'left': relativeMouse - 10 });
+        slider.css({ 'left': relativeMouse + 3 });
     });
 
 
@@ -154,7 +155,7 @@ const loadingPage = () => {
     })
 }
 $(document).ready(() => {
-    loadingPage();
+    // loadingPage();
     accordianList();
     owlCarousel();
     handlerAction();
