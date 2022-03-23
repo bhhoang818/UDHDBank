@@ -4,38 +4,36 @@ doctype html
 
 html(lang="en")
 
-	head
-		meta(charset='UTF-8')
-		title #{title}
-		meta(name='viewport' content='width=device-width, initial-scale=1')
-		meta(name='description' content='')
-		meta(name='keywords' content='')
-		meta(name='author' content='SRBThemes')
-		link(rel="stylesheet" href="./css/main.min.css")
-		link(rel="stylesheet", href="./css/plugins.min.css")
-		link(rel="stylesheet", href="./fonts/all.css")
-		link(rel="preconnect" href="https://fonts.gstatic.com")
-		link(rel='shortcut icon' type='image/png' href='favicon.ico')
-		
-	body(class=bodyClass)
-		block header
-			include ../components/layout/header/header.pug
-		main
-			block main
-		block footer
-			include ../components/layout/footer/footer.pug
-		#overlay
-		#character
-			.cloes 
-				img(src="./images/icons/close.svg", alt="")
-			.open-character 
-				em.material-icons settings
-			.btn__swipe
-				.btn__swipe__range
-					.btn__swipe__fake
-						em.material-icons arrow_forward
-					input.btn__swipe__pullee(type='range' value='0' datahref='http://localhost:8000/moi-truong-uat.html')
-					.btn__swipe__literal
-						span.literal Dùng thử môi trường thử nghiệm
-		script(src="./js/plugins.min.js") 
-		script(src="./js/main.min.js") 
+    head
+        meta(charset='UTF-8')
+        title #{title}
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        meta(name='description' content='')
+        meta(name='keywords' content='')
+        meta(name='author' content='SRBThemes')
+        link(rel="stylesheet" href="./css/main.min.css")
+        link(rel="stylesheet", href="./css/plugins.min.css")
+        link(rel="stylesheet", href="./fonts/all.css")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(rel='shortcut icon' type='image/png' href='favicon.ico')
+        
+    body(class=bodyClass)
+        block header
+            include ../components/layout/header/header.pug
+        main
+            block main
+        block footer
+            include ../components/layout/footer/footer.pug
+        #overlay
+        #character
+            .cloes 
+                img(src="./images/icons/close.svg", alt="")
+            .open-character 
+                em.material-icons settings
+            #button-background
+                    span.slide-text(data-url='https://bhhoang818.github.io/ReUDHDBank/moi-truong-uat') Dùng thử môi trường thử nghiệm
+                    #slider
+                        i#locker.material-icons arrow_forward
+                        span#mesange
+        script(src="./js/plugins.min.js") 
+        script(src="./js/main.min.js") 

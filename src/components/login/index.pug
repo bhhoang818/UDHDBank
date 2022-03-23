@@ -10,13 +10,11 @@ section.login-bg
                 img(src="./images/login-bg.png", alt="")
         .wrapper-right 
             .wrapper-content 
-                .btn__swipe
-                    .btn__swipe__range
-                        .btn__swipe__fake
-                            em.material-icons arrow_forward
-                        input.btn__swipe__pullee(type='range' value='0' datahref='http://localhost:8000/moi-truong-uat.html')
-                        .btn__swipe__literal
-                            span.literal Dùng thử môi trường thử nghiệm
+                #button-background
+                    span.slide-text(data-url='https://bhhoang818.github.io/ReUDHDBank/moi-truong-uat') Dùng thử môi trường thử nghiệm
+                    #slider
+                        i#locker.material-icons arrow_forward
+                        span#mesange
                 .logo 
                     a(href="/")
                         img(src="./images/logo.png", alt="") 

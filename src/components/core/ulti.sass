@@ -28,9 +28,9 @@ section
 
 #character
     border-radius: 8px
-    position: absolute
+    position: fixed
     right: 0
-    top: 170px
+    bottom: 10px
     display: flex
     flex-direction: column
     padding: 8px 16px
@@ -46,7 +46,7 @@ section
         width: 80px
         height: 40px
         background: $red-brand
-        display: flex
+        display: none
         align-items: center
         justify-content: flex-start
         padding: 8px
@@ -58,15 +58,24 @@ section
             animation-iteration-count: infinite
             animation-timing-function: linear
             color: $white
-    .btn__swipe
-        display: none
-        width: 262px
-        .btn__swipe__range
-            .btn__swipe__literal
-                padding-left: 30px
-                padding-right: 16px
-                .literal
-                    font-size: 12px
+    #button-background
+        height: 46px
+        .slide-text
+            font-size: 12px
+            padding: 0 16px
+            padding-left: 55px
+
+        #slider
+            width: 43px
+            height: 43px
+            &.unlocked
+                transition: all 0.3s
+                width: inherit
+                left: 0 !important
+                height: inherit
+                border-radius: inherit
+            #mesange
+                font-size: 12px
 
     @media screen and ( max-width: 600px )
         display: none
