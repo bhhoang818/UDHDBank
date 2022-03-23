@@ -116,10 +116,12 @@ const swipeButton = () => {
                 $('#locker').text('arrow_forward');
                 $('#mesange').fadeOut();
                 $('#locker').css('display', 'block');
+                $('#loadingpage').css('display', 'none');
                 slider.off('click tap');
             });
             window.location.href = url;
-        }, 1500);
+            $('#loadingpage').css('display', 'none');
+        }, 2500);
     });
 
     $(document.body).on('mousemove touchmove', function (event) {
