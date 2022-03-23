@@ -51,8 +51,9 @@ const handlerAction = () => {
         $("header").find('.btn-toggle').toggleClass('active');
     });
     if ($(window).width() < 769) {
-        $('.home-5').appendTo('#home-mobile')
+        $('.home-5').appendTo('#home-mobile');
     }
+    $('.ui-menu').appendTo('header .navbar .navbar-main .wrap-form');
     $('.popup-app').find('.close').on('click', () => {
         $('.popup-app').slideToggle();
     })
@@ -72,6 +73,9 @@ const handlerAction = () => {
     });
     $('#uatModal').find('.btn-agree').on('click', () => {
         $('#uatModal').fadeOut();
+    });
+    $('.character-popup').find('.close').on('click', () => {
+        $('.character-popup').slideToggle();
     });
 }
 const swipeButton = () => {
