@@ -157,7 +157,7 @@ const loadingPage = () => {
     })
 }
 $(document).ready(() => {
-    // loadingPage();
+    loadingPage();
     accordianList();
     owlCarousel();
     handlerAction();
