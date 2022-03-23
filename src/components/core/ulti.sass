@@ -87,7 +87,7 @@ section
         display: none
 .modal
     position: fixed
-    top: 250px
+    top: 400px
     left: 50%
     transform: translateX(-50%)
     z-index: 1050
@@ -135,6 +135,7 @@ section
                 .btn-agree
                     font-size: 16px
     @media screen and ( max-width: 600px )
+        top: 250px
         .modal-content
             width: 163px
             height: 111px
@@ -150,4 +151,6 @@ section
     .dev-environment
         display: none
 .ui-menu
-    width: 100%
+    width: 100% !important
+    z-index: 9999
+    background: $white
