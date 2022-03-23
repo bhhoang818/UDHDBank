@@ -30,8 +30,12 @@ html(lang="en")
 				img(src="./images/icons/close.svg", alt="")
 			.open-character 
 				em.material-icons settings
-			a.btn.btn-trail(href="") Dùng thử môi trường thử nghiệm
-				.icon
-					em.material-icons arrow_forward
+			.btn__swipe
+				.btn__swipe__range
+					.btn__swipe__fake
+						em.material-icons arrow_forward
+					input.btn__swipe__pullee(type='range' value='0' datahref='http://localhost:8000/moi-truong-uat.html')
+					.btn__swipe__literal
+						span.literal Dùng thử môi trường thử nghiệm
 		script(src="./js/plugins.min.js") 
 		script(src="./js/main.min.js") 

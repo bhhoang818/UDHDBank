@@ -10,11 +10,16 @@ section.login-bg
                 img(src="./images/login-bg.png", alt="")
         .wrapper-right 
             .wrapper-content 
-                .btn.btn-trail
-                    a(href="http://localhost:8000/" style="display: none;") 
-                    p.slide-text Dùng thử môi trường thử nghiệm
-                    .icon
-                        em#locker.material-icons arrow_forward
+                .btn__swipe
+                    .btn__swipe__range
+                        .btn__swipe__fake
+                            em.material-icons arrow_forward
+                        input.btn__swipe__pullee(type='range' value='0' datahref='http://localhost:8000/moi-truong-uat.html')
+                        .btn__swipe__literal
+                            span.literal Dùng thử môi trường thử nghiệm
+                .logo 
+                    a(href="/")
+                        img(src="./images/logo.png", alt="") 
                 .title-login 
                     p Chào mừng bạn đến với 
                     h1 Ứng Dụng HDBank

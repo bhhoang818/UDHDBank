@@ -49,6 +49,39 @@
                 span
                     font-size: 13px
                     white-space: nowrap
+.dev-environment
+    width: 100%
+    padding: 16px 0
+    background: #FFECB3
+    .list-animetion
+        ul
+            width: 100%
+            li
+                margin-left: 16px
+                img
+                    max-width: 15px
+                p
+                    text-align: center
+                    font-size: 32px
+                    font-weight: 600
+                    color: #464646
+                    animation: color-change .3s infinite
+                &:first-child
+                    margin-left: 0
+
+        @media screen and ( max-width: 1280px )
+            ul
+                li
+                    p
+                        font-size: 20px
+        @media screen and ( max-width: 600px )
+            padding: 0 32px
+            ul
+                li
+                    margin-left: 36px
+                    p
+                        font-size: 14px
+
 header
     margin-bottom: 20px
     margin-top: 30px

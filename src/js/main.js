@@ -63,77 +63,111 @@ const handlerAction = () => {
     });
     var openCharacter = $('.open-character');
     openCharacter.on('click', () => {
-        openCharacter.next('.btn-trail').fadeToggle();
+        openCharacter.next('.btn__swipe').fadeToggle();
         openCharacter.fadeToggle();
     });
     $('#character').find('.cloes').on('click', () => {
-        $('#character').find('.btn-trail').fadeOut();
+        $('#character').find('.btn__swipe').fadeOut();
         openCharacter.fadeIn();
-    })
+    });
+    $('#uatModal').find('.btn-agree').on('click', () => {
+        $('#uatModal').fadeOut();
+    });
 }
 const swipeButton = () => {
-    var initialMouse = 0;
-    var slideMovementTotal = 0;
-    var mouseIsDown = false;
-    var slider = $('.btn-trail .icon');
+    var inputRange = document.getElementsByClassName('btn__swipe__pullee')[0],
+        maxValue = 100,
+        speed = 12,
+        currValue, rafID;
+    var fake = document.querySelector('.btn__swipe__fake');
+    var label = document.querySelector('.btn__swipe__literal .literal');
 
-    slider.on('mousedown touchstart', function (event) {
-        mouseIsDown = true;
-        slideMovementTotal = $('.btn-trail').width() - $(this).width() + 10;
-        initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
-    });
+    // set min/max value
+    inputRange.min = 0;
+    inputRange.max = maxValue;
 
-    $(document.body, '.btn-trail .icon').on('mouseup touchend', function (event) {
-        if (!mouseIsDown)
-            return;
-        mouseIsDown = false;
-        var currentMouse = event.clientX || event.changedTouches[0].pageX;
-        var relativeMouse = currentMouse - initialMouse;
+    // listen for unlock
+    function unlockStartHandler() {
+        // clear raf if trying again
+        window.cancelAnimationFrame(rafID);
+        // set to desired value
+        currValue = +this.value;
+        animateFake();
+    }
 
-        if (relativeMouse < slideMovementTotal) {
-            $('.slide-text').fadeTo(300, 1);
-            slider.animate({
-                left: "-10px"
-            }, 300);
-            return;
+    function unlockEndHandler() {
+        // store current value
+        currValue = +this.value;
+        // determine if we have reached success or not
+        if (currValue >= maxValue) {
+            successHandler();
         }
-        slider.addClass('unlocked');
-        $('#locker').text('lock_outline');
-        setTimeout(function () {
-            slider.on('click tap', function (event) {
-                if (!slider.hasClass('unlocked'))
-                    return;
-                slider.removeClass('unlocked');
-                $('#locker').text('lock_open');
-                slider.off('click tap');
-            });
-        }, 0);
-    });
-
-    $(document.body).on('mousemove touchmove', function (event) {
-        if (!mouseIsDown)
-            return;
-
-        var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
-        var relativeMouse = currentMouse - initialMouse;
-        var slidePercent = 1 - (relativeMouse / slideMovementTotal);
-
-        $('.slide-text').fadeTo(0, slidePercent);
-
-        if (relativeMouse <= 0) {
-            slider.css({ 'left': '-10px' });
-            return;
+        else {
+            rafID = window.requestAnimationFrame(animateHandler);
         }
-        if (relativeMouse >= slideMovementTotal + 10) {
-            slider.css({ 'left': slideMovementTotal + 'px' });
-            return;
-        }
-        slider.css({ 'left': relativeMouse - 10 });
-    });
+        animateFake();
+    }
 
+    // handle range animation
+    function animateHandler() {
+
+        // update input range
+        inputRange.value = currValue;
+
+        // determine if we need to continue
+        if (currValue > -1) {
+            window.requestAnimationFrame(animateHandler);
+        }
+
+        // decrement value
+        currValue = currValue - speed;
+        animateFake();
+    }
+
+    // handle successful unlock
+    function successHandler() {
+        const dataHref = $('.btn__swipe__pullee').attr('datahref');
+        location.replace(dataHref)
+        // reset input range
+        inputRange.value = 0;
+        // inputRange.closest('.btn__swipe').classList.add('success');
+        // animateFake();
+    };
+
+    function animateFake() {
+        const thumbSize = 45;
+        const value = inputRange.value;
+        const valueMax = inputRange.max;
+        const valueMin = inputRange.min;
+        const totalInputWidth = $('.btn__swipe').outerWidth();
+        const thumbHalfWidth = 55 / 2;
+        const ratio = (value - valueMin) / (valueMax - valueMin); //el max value es 1
+
+        const left = (((value - valueMin) / (valueMax - valueMin)) * ((totalInputWidth - thumbHalfWidth) - thumbHalfWidth)) + thumbHalfWidth;
+        fake.style.left = `${left}px`;
+        // fake.style.transform = `translateX(-50%) rotate(${360*ratio}deg)`;
+        label.style.opacity = (1 - ratio);
+    };
+
+    // bind events
+    animateFake(); // para colocar en la posicion correcta
+    inputRange.addEventListener('mousedown', unlockStartHandler, false);
+    inputRange.addEventListener('mousestart', unlockStartHandler, false);
+    inputRange.addEventListener('mouseup', unlockEndHandler, false);
+    inputRange.addEventListener('touchend', unlockEndHandler, false);
+    inputRange.addEventListener('input', animateFake);
 }
 
+const loadingPage = () => {
+    $(window).on('load', function () {
+        $('#loadingpage').delay(1500).queue(function (next) {
+            $(this).fadeOut()
+            next();
+        })
+    })
+}
 $(document).ready(() => {
+    loadingPage();
     accordianList();
     owlCarousel();
     handlerAction();

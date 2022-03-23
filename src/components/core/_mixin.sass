@@ -146,15 +146,40 @@
     font-size: r(16px)
     font-weight: 400
     color: $gray
-@mixin nonselect
-    -webkit-touch-callout: none
-    -webkit-user-select: none
-    -khtml-user-select: none
-    -moz-user-select: none
-    -ms-user-select: none
-    user-select: none
-    cursor: default
-@mixin center
-    display: flex
-    align-items: center
-    justify-content: center
+@mixin track($color: red, $radius: 0)
+    &::-webkit-slider-runnable-track
+        border-radius: $radius
+        background-color: $color
+        @content
+
+    &::-moz-range-track
+        border-radius: $radius
+        background-color: $color
+        @content
+
+    &::-moz-focus-outer
+        border: 0
+
+    &::-ms-track
+        border: 0
+        border-radius: $radius
+        background-color: $color
+        color: transparent
+        @content
+
+    &::-ms-fill-lower, &::-ms-fill-upper
+        background-color: transparent
+
+    &::-ms-tooltip
+        display: none
+
+@mixin thumb()
+    &::-webkit-slider-thumb
+        appearance: none
+        @content
+
+    &::-moz-range-thumb
+        border: 0
+        @content
+    &::-ms-thumb
+        @content

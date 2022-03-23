@@ -102,7 +102,7 @@
         align-items: center
         justify-content: center
         position: relative
-        width: 400px
+        width: 100%
         background: #FFFFFF
         border: 1px solid #FFC20E
         border-radius: 87px
@@ -130,7 +130,6 @@
             em
                 color: #464646
                 font-weight: 900
-                @include nonselect
             &.unlocked
                 transition: all 0.3s
                 width: inherit
@@ -150,3 +149,112 @@
             .icon
                 width: 43px
                 height: 43px
+.btn__swipe
+    $self: &
+    position: relative
+    width: 100%
+    height: 55px
+    @media screen and ( max-width: 1024px )
+        width: 400px
+        margin: 0 auto
+    @media screen and ( max-width: 600px )
+        width: 100%
+
+    &.success
+        #{$self}__range
+            transform: translateY(50%)
+            opacity: 0
+
+        #{$self}__success
+            transform: translateY(0)
+            opacity: 1
+
+    &__range
+        transition: all .5s ease-in-out
+
+    &__literal
+        position: absolute
+        z-index: 0
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        pointer-events: none
+        background: $white
+        border: 1px solid #FFC20E
+        border-radius: 87px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        .literal
+            display: inline-flex
+            align-items: center
+            white-space: nowrap
+            font-size: 18px
+            font-weight: 600
+            color: #454F5B
+            padding-left: 30px
+        @media screen and ( max-width: 600px )
+            .literal
+                font-size: 12px
+
+    &__pullee
+        position: relative
+        z-index: 1
+        margin: 0
+        background: transparent
+        width: 100%
+        appearance: none
+
+        &:focus
+            outline: none
+        @include thumb()
+            display: block
+            width: 45px
+            height: 45px
+            border-radius: 50%
+            background: transparent
+            transform-origin: 50% 50%
+            transform: scale(1)
+            transition: transform ease-out 100ms
+            cursor: -webkit-grab
+            cursor: -moz-grab
+
+        @include track(transparent, 1rem)
+            height: 55px
+            padding: 5px
+
+    &__fake
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        width: 45px
+        height: 45px
+        background: #F7A30A
+        border-radius: 50px
+        position: absolute
+        top: 5px
+        z-index: 2
+        transform: translateX(-50%)
+        pointer-events: none
+        color: #464646
+        font-size: 22px
+        font-weight: bold
+
+    &__success
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        transform: translateY(-50%)
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        font-family: sans-serif
+        font-weight: bold
+        text-align: center
+        opacity: 0
+        pointer-events: none
+        transition: all .5s ease-in-out

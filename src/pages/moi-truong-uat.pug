@@ -1,0 +1,14 @@
+extends _layout.pug
+
+block var
+    - var title = 'Môi trương UAT'
+    - var bodyClass = 'uat-environment'
+
+block main
+    include ../components/home/h-1/index.pug
+    include ../components/home/h-2/index.pug
+    include ../components/home/h-3/index.pug
+    #home-mobile
+    include ../components/home/h-4/index.pug
+    include ../components/home/h-5/index.pug
+    include ../components/layout/modal/index.pug

@@ -33,7 +33,7 @@ section
     top: 170px
     display: flex
     flex-direction: column
-    padding: 8px
+    padding: 8px 16px
     z-index: 1000
     .cloes,
     .open-character
@@ -58,24 +58,85 @@ section
             animation-iteration-count: infinite
             animation-timing-function: linear
             color: $white
-    .btn-trail
+    .btn__swipe
         display: none
-        padding: 18px 15px 18px 50px
-        font-weight: 600
-        font-size: 12px
-        .icon
-            position: absolute
-            top: 50%
-            left: 3px
-            transform: translateY(-50%)
-            width: 43px
-            height: 43px
-            border-radius: 48px
-            em
-                color: #464646
-                font-weight: 900
+        width: 262px
+        .btn__swipe__range
+            .btn__swipe__literal
+                padding-left: 30px
+                padding-right: 16px
+                .literal
+                    font-size: 12px
+
     @media screen and ( max-width: 600px )
         display: none
 #home-mobile
     @media screen and ( min-width: 769px )
+        display: none
+.uat-environment
+    .popup-app
+        display: none
+.modal
+    position: fixed
+    top: 250px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 1050
+    display: block
+    overflow: hidden
+    outline: 0
+    .modal-content
+        width: 721px
+        height: 280px
+        padding: 16px 10px
+        background: #FBFCFC
+        border: 1px solid #B6BEC8
+        box-sizing: border-box
+        border-radius: 45px
+        display: flex
+        align-items: center
+        justify-content: center
+        .text-content
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            p
+                text-align: center
+                font-size: 32px
+                color: #000000
+                margin-bottom: 24px
+            .btn-agree
+                padding: 4px 16px
+                width: 210px
+                height: 47.02px
+                background: #FBC819
+                border-radius: 4px
+                font-size: 20px
+                color: #000
+                white-space: nowrap
+    @media screen and ( max-width: 1024.98px )
+        .modal-content
+            width: 350px
+            height: 160px
+            border-radius: 10px
+            .text-content
+                p
+                    font-size: 18px
+                .btn-agree
+                    font-size: 16px
+    @media screen and ( max-width: 600px )
+        .modal-content
+            width: 163px
+            height: 111px
+            .text-content
+                p
+                    font-size: 12px
+                .btn-agree
+                    width: 70px
+                    height: 25px
+                    border-radius: 8px
+                    font-size: 12px
+.homepage
+    .dev-environment
         display: none
