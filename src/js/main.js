@@ -62,11 +62,6 @@ const handlerAction = () => {
         toggleDropDown.toggleClass('active');
         toggleDropDown.next('.dropdown').slideToggle();
     });
-    // var openCharacter = $('.open-character');
-    // openCharacter.on('click', () => {
-    //     openCharacter.next('.btn__swipe').fadeToggle();
-    //     openCharacter.fadeToggle();
-    // });
     $('#character').find('.cloes').on('click', () => {
         $('#character').fadeOut();
     });
@@ -76,6 +71,7 @@ const handlerAction = () => {
     $('.character-popup').find('.close').on('click', () => {
         $('.character-popup').slideToggle();
     });
+    $('#character').appendTo('header .navbar .character-popup');
 }
 const swipeButton = () => {
     var initialMouse = 0;
@@ -110,8 +106,7 @@ const swipeButton = () => {
             $('#locker').text('');
             setTimeout(function () {
                 localStorage.removeItem("IsShowPopUp");
-                loadingPage();
-                slider.on('click tap', function (event) {
+                slider.on('load', function (event) {
                     if (!slider.hasClass('unlocked'))
                         return;
                     slider.removeClass('unlocked');
@@ -120,7 +115,8 @@ const swipeButton = () => {
                     slider.off('click tap');
                 });
                 window.location.href = url;
-            }, 300);
+            }, 800);
+
         });
 
         $(document.body).on('mousemove touchmove', function (event) {
@@ -143,51 +139,15 @@ const swipeButton = () => {
             }
             slider.css({ 'left': relativeMouse - 10 });
         });
+
     }
 }
 
 const loadingPage = () => {
-    const myPromise = new Promise((resolve, reject) => {
-        let loading = document.getElementById("loading-container");
-        let progressPercentage = loading.querySelector("#progress-percentage");
-        let progressBar = loading.querySelector("#progress-bar");
-        let images = document.images;
-        let imagesLength = images.length;
-        let counter = 0;
-
-        const turnOffLoadingScreen = () => {
-            if (loading) {
-                loading.style.opacity = "0";
-                setTimeout(function () {
-                    loading.parentNode.removeChild(loading);
-                    document.querySelector("body").classList.add("show-page");
-                    resolve();
-                }, 2000);
-            }
-        };
-
-        const progressing = () => {
-            let n = Math.round(100 / imagesLength * (counter += 1));
-            progressBar.style.width = `${n}%`;
-            progressPercentage.innerHTML = `${n}`;
-            if (counter === imagesLength) {
-                return turnOffLoadingScreen();
-            }
-        };
-
-        if (loading) {
-            if (imagesLength === 0) {
-                return turnOffLoadingScreen();
-            } else {
-                for (let i = 0; i < imagesLength; i++) {
-                    let img = new Image;
-                    img.onload = progressing;
-                    img.onerror = progressing;
-                    img.src = images[i].src;
-                }
-            }
-        }
-    });
+    window.addEventListener('load', () => {
+        var preload = document.querySelector('#loading-container');
+        preload.classList.add('preload-finish');
+    })
 }
 $(document).ready(() => {
     loadingPage();
