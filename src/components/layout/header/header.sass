@@ -1,118 +1,3 @@
-.popup-app
-    background: #FFE7D6
-    padding: 0 16px
-    width: 100%
-    height: 100px
-    margin-bottom: 24px
-    position: relative
-    &_left,
-    &_right
-        position: absolute
-        top: 0
-    &_left
-        left: 0
-    &_right
-        right: 0
-    .close
-        position: absolute
-        cursor: pointer
-        top: 50%
-        right: 16px
-        transform: translateY(-50%)
-    &_content
-        p
-            font-size: 20px
-            color: #454F5B
-            span
-                font-weight: 700
-        .btn-submit
-            margin-left: 24px
-            padding: 12px 24px
-    @media screen and ( max-width: 600px )
-        padding: 0 8px
-        height: 64px
-        justify-content: space-between !important
-        &_left
-            top: -65px
-        &_right
-            top: -50px
-        .close
-            right: 8px
-            width: 24px
-            height: 24px
-        &_content
-            p
-                font-size: 13px
-            .btn-submit
-                margin-left: 14px
-                padding: 4px 8.5px
-                span
-                    font-size: 13px
-                    white-space: nowrap
-.dev-environment
-    width: 100%
-    padding: 16px 0
-    background: #FFECB3
-    .list-animetion
-        ul
-            width: 100%
-            li
-                margin-left: 16px
-                img
-                    max-width: 15px
-                p
-                    text-align: center
-                    font-size: 32px
-                    font-weight: 600
-                    color: #464646
-                    animation: color-change .3s infinite
-                &:first-child
-                    margin-left: 0
-
-        @media screen and ( max-width: 1280px )
-            ul
-                li
-                    p
-                        font-size: 20px
-        @media screen and ( max-width: 600px )
-            padding: 0 32px
-            ul
-                li
-                    margin-left: 36px
-                    p
-                        font-size: 14px
-.character-popup
-    padding: 0 8px
-    margin-top: 12px
-    .character-content
-        position: relative
-        width: 100%
-        background: #FFFFFF
-        box-shadow: 0px 2px 16px rgba(33, 43, 54, 0.1)
-        backdrop-filter: blur(20px)
-        border-radius: 8px
-        display: flex
-        align-items: center
-        padding: 10px
-        .close
-            position: absolute
-            top: 5px
-            right: 5px
-        .img
-            width: 150px
-        a
-            display: flex
-            background: #FFC20E
-            border: 1px solid #FFC20E
-            border-radius: 4px
-            padding: 5px 13px
-            font-weight: 700
-            font-size: 14px
-            text-align: center
-            color: #464646
-
-    @media screen and ( min-width: 600px )
-        display: none
 header
     margin-bottom: 20px
     margin-top: 30px
@@ -134,7 +19,7 @@ header
                 margin-left: 24px
                 .form-group
                     position: relative
-                    width: 390px
+                    width: 300px
                     height: 40px
                     background: #FFFFFF
                     border: 1px solid #D3D8DE
@@ -160,35 +45,39 @@ header
                         cursor: pointer
                         &.active
                             display: flex
-                    .suggestsearch
-                        position: absolute
-                        display: none
-                        top: 100%
-                        width: 100%
-                        padding: 18px 16px
-                        background: #FFFFFF
-                        box-shadow: 0px 14px 40px rgba(33, 43, 54, 0.1)
-                        border-radius: 8px
-                        z-index: 1001
-                        ul
-                            li
-                                a
-                                    padding: 10px 0
-                                    font-weight: 400
-                                    font-size: 16px
-                                    color: #454F5B
-                                    display: block
-                        &.active
-                            display: block
 
+            #character
+                margin: 0 auto
+                #button-background
+                    margin-bottom: 0
+                    height: 40px
+                    .slide-text
+                        width: 100%
+                        height: 100%
+                        font-size: 12px
+                        padding: 0 16px
+                        padding-left: 55px
+                        display: flex
+                        align-items: center
+                    #slider
+                        width: 37px
+                        height: 37px
+                        &.unlocked
+                            transition: all 0.3s
+                            width: inherit
+                            left: 0 !important
+                            height: inherit
+                            border-radius: inherit
+                @media screen and ( max-width: 600px )
+                    display: none
             .btn-ebanking
                 margin-left: auto
-                padding: 8px 18px
+                padding: 8px 16px
                 background: #FFC20E
                 border-radius: 10px
                 span
                     font-weight: 600
-                    font-size: 16px
+                    font-size: 14px
                     color: #5A5A5D
 
             .user-infor

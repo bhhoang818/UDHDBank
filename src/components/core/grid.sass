@@ -2,7 +2,7 @@
 $layout: 100% !default
 $container: 100% !default
 $colCount: 12 !default
-$offset: 15px !default
+$offset: r(12px) !default
 $grid-breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px) !default
 
 .wide
@@ -24,15 +24,14 @@ $grid-breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px) !d
     .wide
         max-width: 720px
 @media(min-width: 992px)
-
-    &
+    .wide
         max-width: 960px
 @media(min-width: 1200px)
     .wide
         max-width: 1140px
 @media(min-width: 1400px)
     .wide
-        max-width: 1288px
+        max-width: 1320px
 .wide-fullscreen
     width: 100%
     padding-right: $offset

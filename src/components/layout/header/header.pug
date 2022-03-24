@@ -23,11 +23,11 @@
 			li 
 				img(src="./images/icons/setting.svg", alt="")
 .character-popup 
-	.character-content 
-		.close 
-			img(src="./images/icons/close-gray.png", alt="")
-		a(href="http://localhost:8000/moi-truong-uat.html") Dùng thử môi trường thử nghiệm
-		img.img(src="./images/home-1/character.png", alt="")
+	#character
+		#button-background
+			span.slide-text(data-url='https://bhhoang818.github.io/ReUDHDBank/moi-truong-uat') Dùng thử môi trường thử nghiệm
+			#slider
+				i#locker.material-icons arrow_forward
 header 
 	.wide
 		nav.navbar.d-flex.align-items-center
@@ -40,7 +40,6 @@ header
 				h1.navbar-brand
 					a(href='/')
 						img(src='./images/logo.png' alt='')
-				
 				form.wrap-form(action="") 
 					.form-group.d-flex.align-items-center 
 						input.form-control(type="text")
@@ -48,6 +47,11 @@ header
 							em.material-icons close
 						button
 							em.material-icons search
+				#character
+					#button-background
+						span.slide-text(data-url='https://bhhoang818.github.io/ReUDHDBank/moi-truong-uat') Dùng thử môi trường thử nghiệm
+						#slider
+							i#locker.material-icons arrow_forward
 				a.btn-ebanking(href="")
 					span Ngân hàng trực tuyến
 				.user-infor.d-flex.align-items-center  

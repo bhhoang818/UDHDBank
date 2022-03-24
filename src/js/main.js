@@ -82,79 +82,112 @@ const swipeButton = () => {
     var slideMovementTotal = 0;
     var mouseIsDown = false;
     var slider = $('#slider');
+    var loading = $("#loading-container");
     var url = $('#button-background .slide-text').attr('data-url');
-    slider.on('mousedown touchstart', function (event) {
-        mouseIsDown = true;
-        slideMovementTotal = $('#button-background').width() - $(this).width() - 3;
-        initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
-    });
-
-    $(document.body, '#slider').on('mouseup touchend', function (event) {
-        if (!mouseIsDown)
-            return;
-        mouseIsDown = false;
-        var currentMouse = event.clientX || event.changedTouches[0].pageX;
-        var relativeMouse = currentMouse - initialMouse;
-
-        if (relativeMouse < slideMovementTotal) {
-            $('.slide-text').fadeTo(300, 1);
-            slider.animate({
-                left: "3px"
+    var swipeButton = $('#button-background');
+    if (swipeButton.length >= 1) {
+        slider.on('mousedown touchstart', function (event) {
+            mouseIsDown = true;
+            slideMovementTotal = $('#button-background').width() - $(this).width() + 10;
+            initialMouse = event.clientX || event.originalEvent.touches[0].pageX;
+        });
+        $(document.body, '#slider').on('mouseup touchend', function (event) {
+            if (!mouseIsDown)
+                return;
+            mouseIsDown = false;
+            var currentMouse = event.clientX || event.changedTouches[0].pageX;
+            var relativeMouse = currentMouse - initialMouse;
+            if (relativeMouse < slideMovementTotal) {
+                $('.slide-text').fadeTo(300, 1);
+                slider.animate({
+                    left: "3px"
+                }, 300);
+                return;
+            }
+            slider.addClass('unlocked');
+            $('#mesange').text('Đang chuyển môi trường thử nghiệm');
+            $('#mesange').fadeIn();
+            $('#locker').text('');
+            setTimeout(function () {
+                localStorage.removeItem("IsShowPopUp");
+                loadingPage();
+                slider.on('click tap', function (event) {
+                    if (!slider.hasClass('unlocked'))
+                        return;
+                    slider.removeClass('unlocked');
+                    $('#mesange').fadeOut();
+                    $('#locker').text('arrow_forward');
+                    slider.off('click tap');
+                });
+                window.location.href = url;
             }, 300);
-            return;
-        }
-        slider.addClass('unlocked');
-        $('#mesange').text('Đang chuyển môi trường thử nghiệm');
-        $('#mesange').fadeIn();
-        $('#locker').css('display', 'none');
-        $('#loadingpage').css('display', 'flex');
-        setTimeout(function () {
-            slider.on('click tap', function (event) {
-                if (!slider.hasClass('unlocked'))
-                    return;
-                slider.removeClass('unlocked');
-                $('#locker').text('arrow_forward');
-                $('#mesange').fadeOut();
-                $('#locker').css('display', 'block');
-                $('#loadingpage').css('display', 'none');
-                slider.off('click tap');
-            });
-            window.location.href = url;
-            $('#loadingpage').css('display', 'none');
-        }, 2500);
-    });
+        });
 
-    $(document.body).on('mousemove touchmove', function (event) {
-        if (!mouseIsDown)
-            return;
+        $(document.body).on('mousemove touchmove', function (event) {
+            if (!mouseIsDown)
+                return;
 
-        var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
-        var relativeMouse = currentMouse - initialMouse;
-        var slidePercent = 1 - (relativeMouse / slideMovementTotal);
+            var currentMouse = event.clientX || event.originalEvent.touches[0].pageX;
+            var relativeMouse = currentMouse - initialMouse;
+            var slidePercent = 1 - (relativeMouse / slideMovementTotal);
 
-        $('.slide-text').fadeTo(0, slidePercent);
+            $('.slide-text').fadeTo(0, slidePercent);
 
-        if (relativeMouse <= 0) {
-            slider.css({ 'left': '3px' });
-            return;
-        }
-        if (relativeMouse >= slideMovementTotal - 3) {
-            slider.css({ 'left': slideMovementTotal - 'px' });
-            return;
-        }
-        slider.css({ 'left': relativeMouse + 3 });
-    });
-
-
+            if (relativeMouse <= 0) {
+                slider.css({ 'left': '3px' });
+                return;
+            }
+            if (relativeMouse >= slideMovementTotal + 10) {
+                slider.css({ 'left': slideMovementTotal + 'px' });
+                return;
+            }
+            slider.css({ 'left': relativeMouse - 10 });
+        });
+    }
 }
 
 const loadingPage = () => {
-    $(window).on('load', function () {
-        $('#loadingpage').delay(1500).queue(function (next) {
-            $(this).fadeOut()
-            next();
-        })
-    })
+    const myPromise = new Promise((resolve, reject) => {
+        let loading = document.getElementById("loading-container");
+        let progressPercentage = loading.querySelector("#progress-percentage");
+        let progressBar = loading.querySelector("#progress-bar");
+        let images = document.images;
+        let imagesLength = images.length;
+        let counter = 0;
+
+        const turnOffLoadingScreen = () => {
+            if (loading) {
+                loading.style.opacity = "0";
+                setTimeout(function () {
+                    loading.parentNode.removeChild(loading);
+                    document.querySelector("body").classList.add("show-page");
+                    resolve();
+                }, 2000);
+            }
+        };
+
+        const progressing = () => {
+            let n = Math.round(100 / imagesLength * (counter += 1));
+            progressBar.style.width = `${n}%`;
+            progressPercentage.innerHTML = `${n}`;
+            if (counter === imagesLength) {
+                return turnOffLoadingScreen();
+            }
+        };
+
+        if (loading) {
+            if (imagesLength === 0) {
+                return turnOffLoadingScreen();
+            } else {
+                for (let i = 0; i < imagesLength; i++) {
+                    let img = new Image;
+                    img.onload = progressing;
+                    img.onerror = progressing;
+                    img.src = images[i].src;
+                }
+            }
+        }
+    });
 }
 $(document).ready(() => {
     loadingPage();

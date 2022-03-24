@@ -1,0 +1,62 @@
+.modal
+    position: fixed
+    top: 400px
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 1050
+    display: none
+    overflow: hidden
+    outline: 0
+    .modal-content
+        width: 721px
+        height: 280px
+        padding: 16px 10px
+        background: #FBFCFC
+        border: 1px solid #B6BEC8
+        box-sizing: border-box
+        border-radius: 45px
+        display: flex
+        align-items: center
+        justify-content: center
+        .text-content
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            p
+                text-align: center
+                font-size: 32px
+                color: #000000
+                margin-bottom: 24px
+            .btn-agree
+                padding: 4px 16px
+                width: 210px
+                height: 47.02px
+                background: #FBC819
+                border-radius: 4px
+                font-size: 20px
+                color: #000
+                white-space: nowrap
+    @media screen and ( max-width: 1024.98px )
+        .modal-content
+            width: 350px
+            height: 160px
+            border-radius: 10px
+            .text-content
+                p
+                    font-size: 18px
+                .btn-agree
+                    font-size: 16px
+    @media screen and ( max-width: 600px )
+        top: 250px
+        .modal-content
+            width: 163px
+            height: 111px
+            .text-content
+                p
+                    font-size: 12px
+                .btn-agree
+                    width: 70px
+                    height: 25px
+                    border-radius: 8px
+                    font-size: 12px

@@ -1,5 +1,5 @@
 @-webkit-keyframes shine
-	100%
+    100%
     left: 125%
 
 @keyframes shine
@@ -54,3 +54,22 @@
         color: #464646
     100%
         color: #EB2629
+.home-banner
+    .swiper-slide
+        // padding-top: 100vh
+        // height: 100vh
+        background: rgba(#1d1d1b, 0.85)
+        &:not(.swiper-slide-active)
+            .image
+                transform: scale(1.4) rotate(0)
+                // transform: scale(1.4) rotate(20deg)
+                transition: transform .6s cubic-bezier(.55,.085,.68,.53),opacity .6s cubic-bezier(.55,.085,.68,.53)
+                transition-delay: 0s,.9s
+                opacity: 0
+        &.swiper-slide-active
+            .image
+                transform: scale(1) rotate(0)
+                opacity: 1
+                transition-duration: 1.2s
+                transition-delay: .45s
+                transition-timing-function: cubic-bezier(.23,1,.32,1)

@@ -25,132 +25,110 @@ section
     @media screen and ( max-width: 600px )
         font-size: 16px
         color: #2C3E50
-
-#character
-    border-radius: 8px
-    position: fixed
-    right: 0
-    bottom: 10px
-    display: flex
-    flex-direction: column
-    padding: 8px 16px
-    z-index: 1000
-    .cloes,
-    .open-character
-        margin-left: auto
-        cursor: pointer
-        position: absolute
-        top: -40px
-        right: 0
-    .open-character
-        width: 80px
-        height: 40px
-        background: $red-brand
-        display: none
-        align-items: center
-        justify-content: flex-start
-        padding: 8px
-        border-top-left-radius: 20px
-        border-bottom-left-radius: 20px
-        .material-icons
-            animation-name: spin
-            animation-duration: 3000ms
-            animation-iteration-count: infinite
-            animation-timing-function: linear
-            color: $white
-    #button-background
-        height: 46px
-        .slide-text
-            font-size: 12px
-            padding: 0 16px
-            padding-left: 55px
-
-        #slider
-            width: 43px
-            height: 43px
-            &.unlocked
-                transition: all 0.3s
-                width: inherit
-                left: 0 !important
-                height: inherit
-                border-radius: inherit
-            #mesange
-                font-size: 12px
-
-    @media screen and ( max-width: 600px )
-        display: none
 #home-mobile
     @media screen and ( min-width: 769px )
         display: none
 .uat-environment
     .popup-app
         display: none
-.modal
-    position: fixed
-    top: 400px
-    left: 50%
-    transform: translateX(-50%)
-    z-index: 1050
-    display: block
-    overflow: hidden
-    outline: 0
-    .modal-content
-        width: 721px
-        height: 280px
-        padding: 16px 10px
-        background: #FBFCFC
-        border: 1px solid #B6BEC8
-        box-sizing: border-box
-        border-radius: 45px
-        display: flex
-        align-items: center
-        justify-content: center
-        .text-content
-            display: flex
-            align-items: center
-            justify-content: center
-            flex-direction: column
-            p
-                text-align: center
-                font-size: 32px
-                color: #000000
-                margin-bottom: 24px
-            .btn-agree
-                padding: 4px 16px
-                width: 210px
-                height: 47.02px
-                background: #FBC819
-                border-radius: 4px
-                font-size: 20px
-                color: #000
-                white-space: nowrap
-    @media screen and ( max-width: 1024.98px )
-        .modal-content
-            width: 350px
-            height: 160px
-            border-radius: 10px
-            .text-content
-                p
-                    font-size: 18px
-                .btn-agree
-                    font-size: 16px
-    @media screen and ( max-width: 600px )
-        top: 250px
-        .modal-content
-            width: 163px
-            height: 111px
-            .text-content
-                p
-                    font-size: 12px
-                .btn-agree
-                    width: 70px
-                    height: 25px
-                    border-radius: 8px
-                    font-size: 12px
-.homepage
-    .dev-environment
-        display: none
 .ui-menu
     width: 100% !important
     z-index: 9999
     background: $white
+.popup-app
+    background: #FFE7D6
+    padding: 0 16px
+    width: 100%
+    height: 100px
+    margin-bottom: 24px
+    position: relative
+    &_left,
+    &_right
+        position: absolute
+        top: 0
+    &_left
+        left: 0
+    &_right
+        right: 0
+    .close
+        position: absolute
+        cursor: pointer
+        top: 50%
+        right: 16px
+        transform: translateY(-50%)
+    &_content
+        p
+            font-size: 20px
+            color: #454F5B
+            span
+                font-weight: 700
+        .btn-submit
+            margin-left: 24px
+            padding: 12px 24px
+    @media screen and ( max-width: 600px )
+        padding: 0 8px
+        height: 64px
+        justify-content: space-between !important
+        &_left
+            top: -65px
+        &_right
+            top: -50px
+        .close
+            right: 8px
+            width: 24px
+            height: 24px
+        &_content
+            p
+                font-size: 13px
+            .btn-submit
+                margin-left: 14px
+                padding: 4px 8.5px
+                span
+                    font-size: 13px
+                    white-space: nowrap
+.dev-environment
+    width: 100%
+    padding: 16px 0
+    background: #FFECB3
+    .list-animetion
+        ul
+            width: 100%
+            li
+                margin-left: 16px
+                img
+                    max-width: 15px
+                p
+                    text-align: center
+                    font-size: 32px
+                    font-weight: 600
+                    color: #464646
+                    animation: color-change .3s infinite
+                &:first-child
+                    margin-left: 0
+
+        @media screen and ( max-width: 1280px )
+            ul
+                li
+                    p
+                        font-size: 20px
+        @media screen and ( max-width: 600px )
+            padding: 0 32px
+            ul
+                li
+                    margin-left: 36px
+                    p
+                        font-size: 14px
+.character-popup
+    padding: 0 8px
+    margin-top: 12px
+    #button-background
+        height: 36px
+        margin-bottom: 0
+        #slider
+            width: 33px
+            height: 33px
+        .slide-text
+            padding-left: 0
+            font-size: 16px
+    @media screen and ( min-width: 600px )
+        display: none
