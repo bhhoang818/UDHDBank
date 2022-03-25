@@ -81,6 +81,7 @@ const swipeButton = () => {
     var loading = $("#loading-container");
     var url = $('#button-background .slide-text').attr('data-url');
     var swipeButton = $('#button-background');
+    loading.hide();
     if (swipeButton.length >= 1) {
         $('.slide-text').fadeIn();
         slider.on('mousedown touchstart', function (event) {
@@ -126,7 +127,7 @@ const swipeButton = () => {
             }, 800);
             setTimeout(function () {
                 window.location.href = url;
-            }, 5000);
+            }, 1000);
         });
 
         $(document.body).on('mousemove touchmove', function (event) {
@@ -153,12 +154,12 @@ const swipeButton = () => {
     }
 }
 
-// const loadingPage = () => {
-//     window.addEventListener('load', () => {
-//         var preload = document.querySelector('#loading-container');
-//         preload.classList.add('preload-finish');
-//     })
-// }
+const loadingPage = () => {
+    window.addEventListener('load', () => {
+        var preload = document.querySelector('#loading-container');
+        preload.classList.add('preload-finish');
+    })
+}
 
 const keyUp = () => {
     $('#txtSearch').keyup(function (event) {
