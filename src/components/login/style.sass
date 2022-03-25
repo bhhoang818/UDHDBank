@@ -1,7 +1,5 @@
 .loginpage
     background: #F2F2F2
-    #loading-container
-        display: none
 .login-bg
     height: 100vh
     padding: 0
@@ -43,8 +41,10 @@
                         font-size: 20px
                         color: $white
                     h1
-                        font-weight: 700
                         font-size: 40px
+                        color: $white
+                    h2
+                        font-size: 26px
                         color: $white
                 .wrap-form
                     .form-group
@@ -106,6 +106,8 @@
                             font-size: 16px
                         h1
                             font-size: 30px
+                        h2
+                            font-size: 20px
                     .logo
                         margin: 16px 0 20px
                     .wrap-form
@@ -144,6 +146,8 @@
                             font-weight: 400
                         h1
                             font-size: 20px
+                        h2
+                            font-size: 18px
                     .wrap-form
                         .form-group
                             label
@@ -172,7 +176,7 @@
     z-index: 99999
     transition: 1s ease
     background-color: #ffffff
-
+    display: none
     .loading-wrapper
         position: absolute
         padding-bottom: 75px

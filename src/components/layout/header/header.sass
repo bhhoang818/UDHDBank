@@ -16,6 +16,7 @@ header
             .navbar-brand
                 width: 113px
             .wrap-form
+                position: relative
                 margin-left: 24px
                 .form-group
                     position: relative
@@ -45,7 +46,28 @@ header
                         cursor: pointer
                         &.active
                             display: flex
-
+                .ui-menu
+                    top: 40px !important
+                    padding: 8px 16px !important
+                    margin-top: 5px !important
+                    width: 100% !important
+                    height: 550px !important
+                    overflow-y: auto !important
+                    z-index: 9999 !important
+                    background: $white !important
+                    box-shadow: 0px 14px 40px rgba(33, 43, 54, 0.1) !important
+                    border-radius: 8px !important
+                    .ui-menu-item
+                        .ui-corner-all
+                            padding: .5rem 0 !important
+                            font-weight: 400 !important
+                            font-size: 16px !important
+                            color: #454F5B !important
+                            -webkit-box-orient: vertical
+                            -webkit-line-clamp: 1
+                            display: -webkit-box
+                            overflow: hidden
+                            text-overflow: ellipsis
             #character
                 margin: 0 auto
                 #button-background
@@ -129,20 +151,24 @@ header
             visibility: hidden
             transition: all .5s ease-in-out
 
-            .btn-ebanking
-                width: 100%
-                padding: 4px 18px
-                background: #FBC819
-                border-radius: 5px
-                display: inline-block
-                font-weight: 600
-                font-size: 14px
-                color: #464646
-                text-align: center
-                margin-bottom: 16px
+            .wrap-button
+                padding: 0 8px
+                .btn-ebanking
+                    width: 100%
+                    padding: 4px 18px
+                    background: #FBC819
+                    border-radius: 5px
+                    display: inline-block
+                    font-weight: 600
+                    font-size: 14px
+                    color: #464646
+                    text-align: center
+                    margin-bottom: 16px
             .wrap-list
                 height: 375px
                 overflow-y: auto
+                padding: 0 8px
+                padding-right: 5px
                 padding-bottom: 16px
                 border-top: 0.5px solid #F8F9FA
                 border-bottom: 0.5px solid #F8F9FA
@@ -186,6 +212,9 @@ header
                     width: 59px
                     height: 59px
                     margin-bottom: 12px
+                    border-radius: 50%
+                    object-fit: cover
+                    border: 1px #fff solid
                 .username
                     font-size: 12px
                     color: #FFFFFF
@@ -236,3 +265,7 @@ header
                 .wrap-form
                     .form-group
                         width: 192px
+                    .ui-menu
+                        .ui-menu-item
+                            .ui-corner-all
+                                font-size: 14px !important

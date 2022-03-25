@@ -82,6 +82,7 @@ const swipeButton = () => {
     var url = $('#button-background .slide-text').attr('data-url');
     var swipeButton = $('#button-background');
     if (swipeButton.length >= 1) {
+        $('.slide-text').fadeIn();
         slider.on('mousedown touchstart', function (event) {
             mouseIsDown = true;
             slideMovementTotal = $('#button-background').width() - $(this).width() + 10;
@@ -106,7 +107,7 @@ const swipeButton = () => {
             $('#locker').text('');
             setTimeout(function () {
                 localStorage.removeItem("IsShowPopUp");
-                slider.on('load', function (event) {
+                slider.on('click tap', function (event) {
                     if (!slider.hasClass('unlocked'))
                         return;
                     slider.removeClass('unlocked');
@@ -114,9 +115,18 @@ const swipeButton = () => {
                     $('#locker').text('arrow_forward');
                     slider.off('click tap');
                 });
+                $('#mesange').fadeOut();
+                $('#locker').text('arrow_forward');
+                slider.removeClass('unlocked');
+                $('.slide-text').fadeTo(300, 1);
+                slider.animate({ left: "3px" }, 300);
+            }, 1800);
+            setTimeout(function () {
+                loading.fadeIn();
+            }, 1800);
+            setTimeout(function () {
                 window.location.href = url;
-            }, 800);
-
+            }, 5000);
         });
 
         $(document.body).on('mousemove touchmove', function (event) {
@@ -150,7 +160,7 @@ const loadingPage = () => {
     })
 }
 $(document).ready(() => {
-    loadingPage();
+    // loadingPage();
     accordianList();
     owlCarousel();
     handlerAction();
