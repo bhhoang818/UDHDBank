@@ -10,15 +10,17 @@ section.login-bg
                 img(src="./images/login-bg.png", alt="")
         .wrapper-right 
             .wrapper-content 
-                #button-background
-                    span.slide-text(data-url='http://localhost:8000/moi-truong-uat.html') Dùng thử môi trường thử nghiệm
-                    #slider
-                        i#locker.material-icons arrow_forward 
-                        span#mesange
-                .title-login 
-                    p Chào mừng bạn đến với 
-                    h1 Ứng Dụng HDBank
-                    h2 (Môi Trường Thử Nghiệm)
+                .wrap-header.d-flex
+                    .title-login 
+                        p Chào mừng bạn đến với 
+                        h1 Ứng Dụng HDBank
+                        //- h2 (Môi Trường Thử Nghiệm)
+                    #button-background
+                        span.slide-text(data-url='http://localhost:8000/moi-truong-uat.html') 
+                            |Dùng thử môi trường thử nghiệm
+                        #slider
+                            i#locker.material-icons arrow_forward 
+                            span#mesange
                 form.wrap-form(action="")
                     .form-group.d-flex 
                         label(for="") Tên Đăng Nhập

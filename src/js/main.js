@@ -120,10 +120,10 @@ const swipeButton = () => {
                 slider.removeClass('unlocked');
                 $('.slide-text').fadeTo(300, 1);
                 slider.animate({ left: "3px" }, 300);
-            }, 1800);
+            }, 800);
             setTimeout(function () {
                 loading.fadeIn();
-            }, 1800);
+            }, 800);
             setTimeout(function () {
                 window.location.href = url;
             }, 5000);
@@ -153,16 +153,28 @@ const swipeButton = () => {
     }
 }
 
-const loadingPage = () => {
-    window.addEventListener('load', () => {
-        var preload = document.querySelector('#loading-container');
-        preload.classList.add('preload-finish');
-    })
+// const loadingPage = () => {
+//     window.addEventListener('load', () => {
+//         var preload = document.querySelector('#loading-container');
+//         preload.classList.add('preload-finish');
+//     })
+// }
+
+const keyUp = () => {
+    $('#txtSearch').keyup(function (event) {
+        $(this).closest('.form-group').find('.clearn').addClass('active');
+    });
+    $('.clearn').on('click', function () {
+        $('#txtSearch').val('');
+        $(this).removeClass('active');
+    });
 }
+
 $(document).ready(() => {
     // loadingPage();
     accordianList();
     owlCarousel();
     handlerAction();
     swipeButton();
+    keyUp();
 });
