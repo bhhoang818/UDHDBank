@@ -1,22 +1,61 @@
 const accordianList = () => {
-    $("#accordian .wrap-title").click(function () {
-        var link = $(this);
-        var closest_ul = link.closest("ul");
-        var parallel_active_links = closest_ul.find(".active")
-        var closest_li = link.closest("li");
-        var link_status = closest_li.hasClass("active");
-        var count = 0;
+    var accordion = (function () {
+        var $accordion = $(".js-accordion");
+        var $accordion_header = $accordion.find(".js-accordion-header");
+        var $accordion_item = $(".js-accordion-item");
 
-        closest_ul.find("ul").slideUp(function () {
-            if (++count == closest_ul.find("ul").length)
-                parallel_active_links.removeClass("active");
-        });
+        var settings = {
+            speed: 400,
+            oneOpen: false
+        };
 
-        if (!link_status) {
-            closest_li.children("ul").slideDown();
-            closest_li.addClass("active");
-        }
-    })
+        return {
+            init: function ($settings) {
+                $accordion_header.on("click", function () {
+                    accordion.toggle($(this));
+                });
+                $.extend(settings, $settings);
+                if (settings.oneOpen && $(".js-accordion-item.active").length > 1) {
+                    $(".js-accordion-item.active:not(:first)").removeClass("active");
+                    $this.closest(".wrapper-container").toggleClass('active');
+                }
+                $(".js-accordion-item.active").find("> .js-accordion-body").show();
+            },
+            toggle: function ($this) {
+                if ($(window).width() >= 1025) {
+                    $this.closest(".wrapper-container").toggleClass('active');
+                }
+
+                if (
+                    settings.oneOpen && $this[0] != $this.closest(".js-accordion").find("> .js-accordion-item.active > .js-accordion-header")[0]) {
+                    $this
+                        .closest(".js-accordion")
+                        .find("> .js-accordion-item")
+                        .removeClass("active")
+                        .find(".js-accordion-body")
+                        .slideUp();
+                    $this.parentsUntil(".wrapper-container")
+                        .find(".js-accordion-item")
+                        .removeClass("active")
+                        .find(".js-accordion-body").slideUp();
+                    if ($(window).width() >= 1025) {
+                        $this.closest(".wrapper-container").addClass('active');
+                    }
+                }
+                $this
+                    .closest(".js-accordion-item")
+                    .toggleClass("active");
+
+                $this
+                    .next()
+                    .stop()
+                    .slideToggle(settings.speed);
+            }
+        };
+    })();
+    $(document).ready(function () {
+        accordion.init({ speed: 300, oneOpen: true });
+    });
 }
 
 const owlCarousel = () => {
@@ -120,7 +159,9 @@ const swipeButton = () => {
                 $('#locker').text('arrow_forward');
                 slider.removeClass('unlocked');
                 $('.slide-text').fadeTo(300, 1);
-                slider.animate({ left: "3px" }, 300);
+                slider.animate({
+                    left: "3px"
+                }, 300);
             }, 800);
             setTimeout(function () {
                 loading.fadeIn();
@@ -141,14 +182,20 @@ const swipeButton = () => {
             $('.slide-text').fadeTo(0, slidePercent);
 
             if (relativeMouse <= 0) {
-                slider.css({ 'left': '3px' });
+                slider.css({
+                    'left': '3px'
+                });
                 return;
             }
             if (relativeMouse >= slideMovementTotal + 10) {
-                slider.css({ 'left': slideMovementTotal + 'px' });
+                slider.css({
+                    'left': slideMovementTotal + 'px'
+                });
                 return;
             }
-            slider.css({ 'left': relativeMouse - 10 });
+            slider.css({
+                'left': relativeMouse - 10
+            });
         });
 
     }

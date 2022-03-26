@@ -6,169 +6,97 @@
         background-image: url('../images/home-1/bg-1.png')
         background-size: cover
         background-repeat: no-repeat
-        background-attachment: fixed
-        background-position: left
+        background-position: center
         border-radius: 20px
-        padding: 55px
-
-        &::after
-            position: absolute
-            content: ''
-            background: linear-gradient(180deg, rgba(218, 33, 40, 0.3) 0%, rgba(244, 178, 77, 0.237) 100%)
-            border-radius: 20px
-            width: 100%
-            height: 100%
-            top: 0
-            left: 0
-            z-index: 1
-        .row
-            z-index: 2
-            position: relative
-            .col-lg-7
-                margin-bottom: -55px
-        #accordian
-            ul.level-1
-                li
-                    margin-bottom: 24px
-                    .wrap-title
-                        padding: 16px 16px 16px 25px
-                        background: #F7EFEF
+        padding: 43px 177px 48px
+        .left,
+        .right
+            .accordion
+                .accordion__item
+                    .accordion-header
+                        padding: 10px 25px
+                        width: 100%
+                        background: #FFFFFF
                         border-radius: 9px
+                        cursor: pointer
                         display: flex
                         align-items: center
                         justify-content: space-between
-                        cursor: pointer
-                        a
-                            font-weight: 600
+                        p
                             font-size: 20px
-                            color: #000000
-                        span.icon
-                            &::after
-                                content: '\e145'
-                                font-family: Material Icons
-                                color: #D12421
-                                font-weight: 900
-                                font-size: 22px
-                                transition: all .3s
+                            font-weight: 600
+                            color: #464646
+                        &::after
+                            content: '\e145'
+                            font-family: Material Icons
+                            transition: all .3s
+                            color: #d12421
+                            font-family: Material Icons
+                            font-size: 22px
+                            font-weight: 900
                     &.active
-                        .wrap-title
-                            span.icon
-                                &::after
-                                    content: '\e15b'
-
-                    ul.level-2
-                        background: #FFF0E5
-                        border-radius: 9px
-                        padding: 24px 24px 24px 70px
-                        margin-top: 8px
+                        .accordion-header
+                            &::after
+                                content: '\e15b'
+                    .accordion-body
                         display: none
-                        li
-                            margin-bottom: 8px
-                            .wrap-title
-                                background: #F7B512
-                                border-radius: 9px
-                                padding: 16px 8px
-                                display: flex
-                                align-items: center
-                                justify-content: flex-start
-                                cursor: pointer
-                                span.icon
-                                    &::after
-                                        content: '\e5df'
-                                        font-family: Material Icons
-                                        color: #464646
-                                        font-weight: 900
-                                        font-size: 22px
-                                        transition: all .3s
-                            &.active
-                                .wrap-title
-                                    span.icon
-                                        &::after
-                                            content: '\e5c5'
-
-                        ul.level-3
-                            background: #FFECB3
-                            border-radius: 9px
-                            padding: 20px 16px 16px 24px
-                            margin-left: 24px
-                            margin-top: 8px
+                        margin-top: 8px
+                        border-radius: 9px
+                        background: #fff0e5
+                        padding: 24px 24px 24px 70px
+                        ul
                             li
-                                margin-bottom: 8px
-                                .wrap-title
-                                    background: #FCC954
-                                    border-radius: 8px
-                                    padding: 16px 6px
+                                a
                                     display: flex
                                     align-items: center
-                                    span.icon
-                                        &::after
-                                            content: '\e5df'
-                                            font-family: Material Icons
-                                            color: #464646
-                                            font-weight: 900
-                                            font-size: 22px
-                                            transition: all .3s
-                                &.active
-                                    .wrap-title
-                                        span.icon
-                                            &::after
-                                                content: '\e5c5'
-                                ul.level-4
-                                    margin-top: 8px
-                                    margin-left: 24px
-                                    background: rgba(0, 0, 0, 0.05)
-                                    border-radius: 8px
-                                    li
-                                        margin-bottom: 8px
-                                        a
-                                            display: inline-block
-                                            padding: 8px 16px
-                                            font-weight: 600
-                                            font-size: 14px
-                                            color: #006FD6
-
-        .bg-img
-            transform: translateY(160px)
-    @media screen and ( max-width: 1280.98px )
-        .wrapper-container
-            #accordian
-                ul.level-1
-                    li
-                        .wrap-title
-                            a
-                                font-size: 14px
-    @media screen and ( max-width: 1199.98px )
-        .wrapper-container
-            background: none
-            padding: 27px 7px 27px 20px
-            border-radius: 8px
-            &::after
-                background: linear-gradient(272.99deg, rgba(218, 33, 40, 0.3) 15.04%, rgba(244, 178, 77, 0.237) 108%)
-                border-radius: 8px
-            #accordian
-                ul.level-1
-                    li
-                        margin-bottom: 10px
-                        .wrap-title
-                            padding: 10px
-                            background: rgba(255, 255, 255, 0.5)
-                        ul.level-2
-                            background: #FAE8E2
-                            border-radius: 9px
-                            padding: 20px 13px
-                            li
-                                margin-bottom: 10px
-                                .wrap-title
-                                    padding: 0
-                                    border-radius: 8px
-                                    a
-                                        font-size: 12px
+                                    justify-content: flex-start
+                                    cursor: pointer
+                                    border-radius: 9px
+                                    background: #f7b512
+                                    padding: 16px 8px
+                                    color: #000
+                                    font-size: 20px
+                                    font-weight: 600
+                                    &::before
                                         color: #464646
-                                ul.level-3
-                                    margin-left: 0
-                                    padding: 10px 19px
-                                    li
-                                        .wrap-title
-                                            padding: 0
-        .bg-img
-            display: none
+                                        font-family: Material Icons
+                                        font-size: 22px
+                                        font-weight: 900
+                                        content: "\e5df"
+                            li + li
+                                margin-top: 8px
+                .accordion__item + .accordion__item
+                    margin-top: 24px
+        &.active
+            background-image: url('../images/home-1/bg-2.png')
+    @media screen and ( max-width: 1024px )
+        .wrapper-container
+            background: linear-gradient(272.99deg, rgba(218, 33, 40, 0.3) 15.04%, rgba(244, 178, 77, 0.237) 108%)
+            border-radius: 8px
+            padding: 30px
+            .title
+                padding-bottom: 13px
+            .left,
+            .right
+                .accordion
+                    .accordion__item + .accordion__item
+                        margin-top: 13px
+                    .accordion__item
+                        .accordion-header
+                            padding: 10px 25px 10px 16px
+                            p
+                                font-size: 14px
+                                font-weight: 700
+                                color: #000
+                        .accordion-body
+                            padding: 16px
+                            ul
+                                li
+                                    a
+                                        font-size: 14px
+                                        padding: 8px
+    @media screen and ( max-width: 767.98px )
+        .wrapper-container
+            padding: 13px
+            .right
+                margin-top: 13px
