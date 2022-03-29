@@ -113,14 +113,21 @@ const handlerAction = () => {
     });
     let optionToggle = $('.option-change').find('.icon-option');
     let closeToggle = $('.option-change').find('.close');
-    optionToggle.on('click', () => {
-        $('#button-background').toggleClass('active');
-        optionToggle.fadeOut();
-    });
-    closeToggle.on('click', () => {
-        $('#button-background').removeClass('active');
-        optionToggle.fadeIn();
-    });
+
+    if ($(window).width() > 1280) {
+        closeToggle.on('click', () => {
+            $('#button-background').fadeOut();
+        });
+    } else {
+        optionToggle.on('click', () => {
+            $('#button-background').toggleClass('active');
+            optionToggle.fadeOut();
+        });
+        closeToggle.on('click', () => {
+            $('#button-background').removeClass('active');
+            optionToggle.fadeIn();
+        });
+    }
 }
 const swipeButton = () => {
     var initialMouse = 0;

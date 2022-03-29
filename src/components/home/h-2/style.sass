@@ -43,12 +43,16 @@
                         cursor: pointer
                         display: flex
                         align-items: center
-                        justify-content: space-between
+                        .icon-title
+                            width: 28px
+                            height: 28px
+                            margin-right: 16px
                         p
                             font-size: 20px
                             font-weight: 600
                             color: #464646
                         &::after
+                            margin-left: auto
                             content: '\e145'
                             font-family: Material Icons
                             transition: all .3s
@@ -64,7 +68,7 @@
                         display: none
                         margin-top: 8px
                         border-radius: 9px
-                        background: #fff0e5
+                        background: $white
                         padding: 24px
                         ul
                             li
@@ -74,17 +78,15 @@
                                     justify-content: flex-start
                                     cursor: pointer
                                     border-radius: 9px
-                                    background: #f7b512
-                                    padding: 5px 8px
+                                    background: #F2F2F2
+                                    padding: 10px 16px
                                     color: #000
                                     font-size: 20px
                                     font-weight: 600
-                                    &::before
-                                        color: #464646
-                                        font-family: Material Icons
-                                        font-size: 22px
-                                        font-weight: 900
-                                        content: "\e5df"
+                                    .icon
+                                        width: 24px
+                                        height: 24px
+                                        margin-right: 16px
                             li + li
                                 margin-top: 8px
                 .accordion__item + .accordion__item

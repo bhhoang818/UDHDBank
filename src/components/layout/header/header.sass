@@ -298,9 +298,7 @@ header
             margin-top: 8px
             position: absolute
             top: 50%
-            right: -100%
-            opacity: 0
-            visibility: hidden
+            right: 0
             transition: all .3s
             transform: translateY(-50%)
             .close
@@ -308,13 +306,21 @@ header
                 top: -45px
                 right: 0
                 cursor: pointer
-            &.active
-                opacity: 1
-                visibility: visible
-                right: 0
+
+        @media screen and ( min-width: 1281px )
+            .option-header
+                display: none
         @media screen and ( max-width: 1280px )
             position: fixed
             top: 30%
             right: 5px
+            #button-background
+                right: -100%
+                opacity: 0
+                visibility: hidden
+                &.active
+                    opacity: 1
+                    visibility: visible
+                    right: 0
         @media screen and ( max-width: 600px )
             top: 90%
