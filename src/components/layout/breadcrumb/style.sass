@@ -1,0 +1,46 @@
+.breadcrumb-wrapper
+    width: 100%
+    margin-bottom: 30px
+    .breadcrumb
+        display: flex
+        align-items: center
+        .breadcrumb-item
+            position: relative
+            a
+                display: block
+                padding: 20px 33px
+                font-weight: 700
+                font-size: 32px
+                color: #020202
+                background: rgba(211, 216, 222, 0.3)
+                border-radius: 15px
+        .breadcrumb-item + .breadcrumb-item
+            margin-left: 58px
+            &::before
+                position: absolute
+                top: 50%
+                left: -70px
+                transform: translateY(-50%)
+                content: '\e5df'
+                font-family: Material Icons
+                font-size: 90px
+                color: rgba(6, 6, 6, 0.7)
+    @media screen and ( max-width: 1280px )
+        margin-bottom: 15px
+        .breadcrumb
+            .breadcrumb-item
+                a
+                    padding: 16px
+                    font-size: 16px
+            .breadcrumb-item + .breadcrumb-item
+                margin-left: 30px
+                &::before
+                    font-size: 60px
+                    left: -45px
+    @media screen and ( max-width: 1024px )
+        .breadcrumb
+            .breadcrumb-item
+                a
+                    font-size: 14px
+                    padding: 8px
+                    border-radius: 8px

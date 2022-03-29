@@ -22,9 +22,9 @@ const accordianList = () => {
                 $(".js-accordion-item.active").find("> .js-accordion-body").show();
             },
             toggle: function ($this) {
-                if ($(window).width() >= 1025) {
-                    $this.closest(".wrapper-container").toggleClass('active');
-                }
+                // if ($(window).width() >= 1025) {
+                //     $this.closest(".wrapper-container").toggleClass('active');
+                // }
 
                 if (
                     settings.oneOpen && $this[0] != $this.closest(".js-accordion").find("> .js-accordion-item.active > .js-accordion-header")[0]) {
@@ -38,9 +38,9 @@ const accordianList = () => {
                         .find(".js-accordion-item")
                         .removeClass("active")
                         .find(".js-accordion-body").slideUp();
-                    if ($(window).width() >= 1025) {
-                        $this.closest(".wrapper-container").addClass('active');
-                    }
+                    // if ($(window).width() >= 1025) {
+                    //     $this.closest(".wrapper-container").addClass('active');
+                    // }
                 }
                 $this
                     .closest(".js-accordion-item")
@@ -101,16 +101,26 @@ const handlerAction = () => {
         toggleDropDown.toggleClass('active');
         toggleDropDown.next('.dropdown').slideToggle();
     });
-    $('#character').find('.cloes').on('click', () => {
-        $('#character').fadeOut();
-    });
+
     $('#uatModal').find('.btn-agree').on('click', () => {
+        $("#uatModal").removeClass('active')
         $('#uatModal').fadeOut();
+        $('body').find('#overlay-uat').removeClass('active');
+        $('html').css('overflow-y', 'auto');
     });
     $('.character-popup').find('.close').on('click', () => {
         $('.character-popup').slideToggle();
     });
-    $('#character').appendTo('header .navbar .character-popup');
+    let optionToggle = $('.option-change').find('.icon-option');
+    let closeToggle = $('.option-change').find('.close');
+    optionToggle.on('click', () => {
+        $('#button-background').toggleClass('active');
+        optionToggle.fadeOut();
+    });
+    closeToggle.on('click', () => {
+        $('#button-background').removeClass('active');
+        optionToggle.fadeIn();
+    });
 }
 const swipeButton = () => {
     var initialMouse = 0;
@@ -120,7 +130,7 @@ const swipeButton = () => {
     var loading = $("#loading-container");
     var url = $('#button-background .slide-text').attr('data-url');
     var swipeButton = $('#button-background');
-    loading.hide();
+    // loading.hide();
     if (swipeButton.length >= 1) {
         $('.slide-text').fadeIn();
         slider.on('mousedown touchstart', function (event) {
@@ -162,13 +172,13 @@ const swipeButton = () => {
                 slider.animate({
                     left: "3px"
                 }, 300);
-            }, 800);
+            }, 500);
             setTimeout(function () {
                 loading.fadeIn();
-            }, 800);
+            }, 500);
             setTimeout(function () {
                 window.location.href = url;
-            }, 1000);
+            }, 800);
         });
 
         $(document.body).on('mousemove touchmove', function (event) {
@@ -217,7 +227,22 @@ const keyUp = () => {
         $(this).removeClass('active');
     });
 }
+const popUPUat = () => {
+    var isShowPopup = localStorage.getItem("IsShowPopUp");
+    setTimeout(function () {
+        var uatModal = $("#uatModal");
+        if (!isShowPopup && uatModal.length > 0) {
+            localStorage.setItem("IsShowPopUp", true)
+            uatModal.show();
+            uatModal.addClass("active");
+        }
+    }, 2000);
+    if ($("#uatModal").hasClass('active')) {
+        $('body').find('#overlay-uat').addClass('active');
+        $('html').css('overflow-y', 'hidden');
+    }
 
+}
 $(document).ready(() => {
     // loadingPage();
     accordianList();
@@ -225,4 +250,5 @@ $(document).ready(() => {
     handlerAction();
     swipeButton();
     keyUp();
+    popUPUat();
 });
