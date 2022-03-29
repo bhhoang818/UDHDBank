@@ -228,15 +228,6 @@ const keyUp = () => {
     });
 }
 const popUPUat = () => {
-    var isShowPopup = localStorage.getItem("IsShowPopUp");
-    setTimeout(function () {
-        var uatModal = $("#uatModal");
-        if (!isShowPopup && uatModal.length > 0) {
-            localStorage.setItem("IsShowPopUp", true)
-            uatModal.show();
-            uatModal.addClass("active");
-        }
-    }, 2000);
     if ($("#uatModal").hasClass('active')) {
         $('body').find('#overlay-uat').addClass('active');
         $('html').css('overflow-y', 'hidden');
