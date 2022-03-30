@@ -114,20 +114,14 @@ const handlerAction = () => {
     let optionToggle = $('.option-change').find('.icon-option');
     let closeToggle = $('.option-change').find('.close');
 
-    if ($(window).width() > 1280) {
-        closeToggle.on('click', () => {
-            $('#button-background').fadeOut();
-        });
-    } else {
-        optionToggle.on('click', () => {
-            $('#button-background').toggleClass('active');
-            optionToggle.fadeOut();
-        });
-        closeToggle.on('click', () => {
-            $('#button-background').removeClass('active');
-            optionToggle.fadeIn();
-        });
-    }
+    optionToggle.on('click', () => {
+        $('#button-background').addClass('active');
+        optionToggle.fadeOut();
+    });
+    closeToggle.on('click', () => {
+        $('#button-background').removeClass('active');
+        optionToggle.fadeIn();
+    });
 }
 const swipeButton = () => {
     var initialMouse = 0;
@@ -137,7 +131,10 @@ const swipeButton = () => {
     var loading = $("#loading-container");
     var url = $('#button-background .slide-text').attr('data-url');
     var swipeButton = $('#button-background');
-    // loading.hide();
+    window.onload = function () {
+        loading.removeClass('active');
+    };
+
     if (swipeButton.length >= 1) {
         $('.slide-text').fadeIn();
         slider.on('mousedown touchstart', function (event) {
@@ -181,7 +178,7 @@ const swipeButton = () => {
                 }, 300);
             }, 500);
             setTimeout(function () {
-                loading.fadeIn();
+                loading.addClass('active');
             }, 500);
             setTimeout(function () {
                 window.location.href = url;
