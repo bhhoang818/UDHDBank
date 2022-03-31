@@ -1,97 +1,98 @@
 .popup-app.d-flex.align-items-center.justify-content-center 
-	.popup-app_left 
-		img(src="./images/popupApp/left.svg", alt="")
-	.popup-app_content.d-flex.align-items-center 
-		p 
-			|Chúng tôi vừa cho ra mắt ứng dụng
-			br
-			span “ iPaper” 
-			|trình ký sẵn
-		a.btn.btn-submit(href="")
-			span Tải về ngay 
-	.popup-app_right 
-		img(src="./images/popupApp/right.svg", alt="")
-	.close 
-		img(src="./images/icons/close.svg", alt="")
+    .popup-app_left 
+        img(src="./images/popupApp/left.svg", alt="")
+    .popup-app_content.d-flex.align-items-center 
+        p 
+            |Chúng tôi vừa cho ra mắt ứng dụng
+            br
+            span “ iPaper” 
+            |trình ký sẵn
+        a.btn.btn-submit(href="")
+            span Tải về ngay 
+    .popup-app_right 
+        img(src="./images/popupApp/right.svg", alt="")
+    .close 
+        img(src="./images/icons/close.svg", alt="")
 .dev-environment
-	.list-animetion 
-		ul.d-flex.align-items-center.justify-content-center 
-			li 
-				img(src="./images/icons/setting.svg", alt="")
-			li 
-				p Bạn đang dùng môi trường thử nghiệm
-			li 
-				img(src="./images/icons/setting.svg", alt="")
+    .list-animetion 
+        ul.d-flex.align-items-center.justify-content-center 
+            li 
+                img(src="./images/icons/setting.svg", alt="")
+            li 
+                p Bạn đang dùng môi trường thử nghiệm
+            li 
+                img(src="./images/icons/setting.svg", alt="")
 header 
-	.wide
-		nav.navbar.d-flex.align-items-center
-			.navbar-main.d-flex.align-items-center
-				.btn.btn-toggle 
-					span 
-					span 
-					span 
-					span
-				h1.navbar-brand
-					a(href='/')
-						img(src='./images/logo.png' alt='')
-				form.wrap-form(action="") 
-					.form-group.d-flex.align-items-center 
-						input#txtSearch.form-control(type="text")
-						.clearn 
-							em.material-icons close
-						button
-							em.material-icons search
-				a.btn-ebanking(href="")
-					span Ngân hàng trực tuyến
-				.user-infor.d-flex.align-items-center  
-					span.username Xin chào, Nghĩa
-					img.avatar(src="./images/avatar.svg", alt="")
-					.dropdown 
-						ul 
-							li 
-								a(href="") Đăng xuất
-			.navbar-mobile
-				.wrap-button 
-					a.btn-ebanking(href="") Ngân hàng trực tuyến
-				.wrap-list 
-					a.btn-title(href="") Biểu mẫu nhân sự
-					ul 
-						li 
-							a(href="") 
-								img.icon(src="./images/icons/i-11.svg", alt="")
-								span BHXH
-						li 
-							a(href="") 
-								img.icon(src="./images/icons/i-12.svg", alt="")
-								span Quyết toán thuế
-						li 
-							a(href="") 
-								img.icon(src="./images/icons/i-13.svg", alt="")
-								span ĐK người phụ thuộc
-					a.btn-title(href="") Dịch vụ CNTT
-					ul 
-						li 
-							a(href="") 
-								img.icon(src="./images/icons/i-23.svg", alt="")
-								span Phiếu YC CNTT
-						li 
-							a(href="") 
-								img.icon(src="./images/icons/i-24.svg", alt="")
-								span Phiếu YC cấp user
-				.user-infor 
-					a(href="") 
-						img.avatar(src="./images/avatar.svg", alt="")
-					a.username(href="") Xin chào, Nghĩa
-					a.btn-logout(href="") Đăng xuất
-	.option-change
-		.option-header
-			.icon-option 
-				img(src="./images/icons/hat.svg", alt="")
-		#button-background
-			.close 
-				img(src="./images/icons/close.svg", alt="") 
-			span.slide-text(data-url='http://localhost:8000/moi-truong-uat.html') 
-				|Dùng thử môi trường thử nghiệm
-			#slider
-				i#locker.material-icons arrow_forward 
-				span#mesange
+    .wide
+        nav.navbar.d-flex.align-items-center
+            .navbar-main.d-flex.align-items-center
+                .btn.btn-toggle 
+                    span 
+                    span 
+                    span 
+                    span
+                h1.navbar-brand
+                    a(href='/')
+                        img(src='./images/logo.png' alt='')
+                form.wrap-form(action="") 
+                    .form-group.d-flex.align-items-center 
+                        input#txtSearch.form-control(type="text")
+                        .clearn 
+                            img(src="./images/icons/clear.svg", alt="")
+                        button
+                            img(src="./images/icons/search.svg", alt="")
+                a.btn-ebanking(href="")
+                    span Ngân hàng trực tuyến
+                .user-infor.d-flex.align-items-center  
+                    span.username Xin chào, Nghĩa
+                    img.avatar(src="./images/avatar.svg", alt="")
+                    .dropdown 
+                        ul 
+                            li 
+                                a(href="") Đăng xuất
+            .navbar-mobile
+                .wrap-button 
+                    a.btn-ebanking(href="") Ngân hàng trực tuyến
+                .wrap-list 
+                    a.btn-title(href="") Biểu mẫu nhân sự
+                    ul 
+                        li 
+                            a(href="") 
+                                img.icon(src="./images/icons/i-11.svg", alt="")
+                                span BHXH
+                        li 
+                            a(href="") 
+                                img.icon(src="./images/icons/i-12.svg", alt="")
+                                span Quyết toán thuế
+                        li 
+                            a(href="") 
+                                img.icon(src="./images/icons/i-13.svg", alt="")
+                                span ĐK người phụ thuộc
+                    a.btn-title(href="") Dịch vụ CNTT
+                    ul 
+                        li 
+                            a(href="") 
+                                img.icon(src="./images/icons/i-23.svg", alt="")
+                                span Phiếu YC CNTT
+                        li 
+                            a(href="") 
+                                img.icon(src="./images/icons/i-24.svg", alt="")
+                                span Phiếu YC cấp user
+                .user-infor 
+                    a(href="") 
+                        img.avatar(src="./images/avatar.svg", alt="")
+                    a.username(href="") Xin chào, Nghĩa
+                    a.btn-logout(href="") Đăng xuất
+    .option-change
+        .option-header
+            .icon-option 
+                img(src="./images/icons/hat.svg", alt="")
+        #button-background
+            .close 
+                img(src="./images/icons/close.svg", alt="") 
+            span.slide-text(data-url='http://localhost:8000/moi-truong-uat.html') 
+                |Dùng thử môi trường thử nghiệm
+            #slider
+                #locker 
+                    img(src="./images/icons/arrow-small.svg", alt="")
+                span#mesange

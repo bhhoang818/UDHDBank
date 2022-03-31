@@ -109,7 +109,7 @@
     display: flex
     align-items: center
     justify-content: center
-
+    cursor: pointer
     #slider
         transition: width 0.3s,border-radius 0.3s,height 0.3s
         position: absolute
@@ -123,6 +123,7 @@
         display: flex
         align-items: center
         justify-content: center
+        cursor: pointer
         &.unlocked
             transition: all 0.3s
             width: inherit
@@ -151,7 +152,7 @@
         font-weight: 600
         text-align: center
         padding: 0 24px
-        @include nonselect
+        cursor: pointer
     @media screen and ( max-width: 600px )
         .slide-text
             font-size: 14px

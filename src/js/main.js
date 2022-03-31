@@ -134,8 +134,13 @@ const swipeButton = () => {
     window.onload = function () {
         loading.removeClass('active');
     };
-
-    if (swipeButton.length >= 1) {
+    if (window.document.documentMode) {
+        swipeButton.find('.slide-text').on('click', () => {
+            setTimeout(function () {
+                window.location.href = url;
+            }, 500);
+        });
+    } else if (swipeButton.length >= 1) {
         $('.slide-text').fadeIn();
         slider.on('mousedown touchstart', function (event) {
             mouseIsDown = true;
@@ -158,7 +163,7 @@ const swipeButton = () => {
             slider.addClass('unlocked');
             $('#mesange').text('Đang chuyển môi trường thử nghiệm');
             $('#mesange').fadeIn();
-            $('#locker').text('');
+            $('#locker').fadeOut();
             setTimeout(function () {
                 localStorage.removeItem("IsShowPopUp");
                 slider.on('click tap', function (event) {
@@ -166,11 +171,11 @@ const swipeButton = () => {
                         return;
                     slider.removeClass('unlocked');
                     $('#mesange').fadeOut();
-                    $('#locker').text('arrow_forward');
+                    $('#locker').fadeIn();
                     slider.off('click tap');
                 });
                 $('#mesange').fadeOut();
-                $('#locker').text('arrow_forward');
+                $('#locker').fadeIn();
                 slider.removeClass('unlocked');
                 $('.slide-text').fadeTo(300, 1);
                 slider.animate({
@@ -182,7 +187,7 @@ const swipeButton = () => {
             }, 500);
             setTimeout(function () {
                 window.location.href = url;
-            }, 800);
+            }, 500);
         });
 
         $(document.body).on('mousemove touchmove', function (event) {
