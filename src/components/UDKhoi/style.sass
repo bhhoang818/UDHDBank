@@ -21,14 +21,14 @@
             &_dropdown
                 width: 96px
                 height: 84px
-                background: #FBFCFC
-                border-radius: 15px
                 margin-left: 12px
                 a
-                    display: flex
                     width: 100%
                     height: 100%
+                    display: flex
                     align-items: center
+                    background: #FBFCFC
+                    border-radius: 15px
                     img
                         margin: 0 auto
                         transition: all .3s ease-in-out
@@ -142,9 +142,12 @@
                     .text
                         font-size: 12px
                 &_dropdown
-                    width: 50px
+                    max-wwidth: 50px
                     height: 50px
                     a
+                        img
+                            width: 50%
+
                         em
                             font-size: 50px
                     .dropdown
@@ -153,6 +156,7 @@
                             overflow-y: auto
                             height: 420px
                             padding: 0
+                            padding-right: 10px
                             li
                                 flex: 0 0 100%
                                 max-width: 100%
